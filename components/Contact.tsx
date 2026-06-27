@@ -1,18 +1,18 @@
 'use client';
 
 import { motion } from 'motion/react';
-import { MapPin, Phone, Mail, Clock } from 'lucide-react';
+import { MapPin, Phone, Clock } from 'lucide-react';
 
 export default function Contact() {
   return (
-    <section id="contact" className="py-24 md:py-32 bg-signova-cream">
+    <section id="contact" className="py-24 md:py-32 bg-signova-ivory border-t border-signova-gold/10">
       <div className="container mx-auto px-4">
         <div className="text-center max-w-3xl mx-auto mb-20">
           <motion.h4 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-signova-gold font-serif italic text-lg md:text-xl mb-4"
+            className="font-cursive text-3xl md:text-4xl text-signova-gold mb-2"
           >
             Get In Touch
           </motion.h4>
@@ -21,28 +21,36 @@ export default function Contact() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-5xl md:text-6xl font-serif leading-[1.1] text-signova-black mb-6"
+            className="text-4xl md:text-6xl font-serif leading-[1.1] text-signova-dark mb-6"
           >
-            Visit <span className="italic font-light">Signova.</span>
+            Visit Signova
           </motion.h2>
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="flex justify-center"
+          >
+            <div className="w-24 h-[1px] bg-signova-gold mb-6" />
+          </motion.div>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-16 items-start">
-          <div className="space-y-12">
+        <div className="grid lg:grid-cols-2 gap-16 items-start max-w-6xl mx-auto">
+          <div className="space-y-12 bg-signova-white p-8 md:p-12 rounded-sm border border-signova-gold/10 shadow-[0_5px_20px_rgba(200,163,106,0.05)]">
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               className="flex gap-6 items-start"
             >
-              <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center text-signova-gold shrink-0 border border-signova-beige shadow-sm">
+              <div className="w-12 h-12 rounded-full bg-signova-ivory flex items-center justify-center text-signova-gold shrink-0 border border-signova-gold/20">
                 <MapPin size={24} />
               </div>
               <div>
-                <h3 className="text-xl font-serif text-signova-black mb-2">Location</h3>
-                <p className="text-signova-brown font-light leading-relaxed">
-                  123 Luxury Avenue, Healthcare District<br />
-                  Metropolis, NY 10001
+                <h3 className="text-sm uppercase tracking-[0.2em] font-semibold text-signova-gold mb-3">Location</h3>
+                <p className="text-signova-dark/80 font-serif text-lg leading-relaxed max-w-xs">
+                  1st Floor, Tariq Square, Kashmir Road, opposite Superior College, Pakka Garha Ghumman, Sialkot
                 </p>
               </div>
             </motion.div>
@@ -54,17 +62,22 @@ export default function Contact() {
               transition={{ delay: 0.1 }}
               className="flex gap-6 items-start"
             >
-              <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center text-signova-gold shrink-0 border border-signova-beige shadow-sm">
+              <div className="w-12 h-12 rounded-full bg-signova-ivory flex items-center justify-center text-signova-gold shrink-0 border border-signova-gold/20">
                 <Phone size={24} />
               </div>
               <div>
-                <h3 className="text-xl font-serif text-signova-black mb-2">Contact</h3>
-                <p className="text-signova-brown font-light leading-relaxed mb-1">
-                  +1 (555) 123-4567
-                </p>
-                <p className="text-signova-brown font-light leading-relaxed">
-                  hello@signova.com
-                </p>
+                <h3 className="text-sm uppercase tracking-[0.2em] font-semibold text-signova-gold mb-3">Contact</h3>
+                <div className="space-y-2">
+                  <p className="text-signova-dark/80 font-serif text-lg">
+                    <a href="tel:+92524352215" className="hover:text-signova-gold transition-colors">+92 52 4352215</a> <span className="text-xs font-sans text-signova-dark/50 uppercase tracking-wider">(Landline)</span>
+                  </p>
+                  <p className="text-signova-dark/80 font-serif text-lg">
+                    <a href="tel:+923098644429" className="hover:text-signova-gold transition-colors">+92 309 8644429</a> <span className="text-xs font-sans text-signova-dark/50 uppercase tracking-wider">(WhatsApp/Reception)</span>
+                  </p>
+                  <p className="text-signova-dark/80 font-serif text-lg">
+                    <a href="tel:+923098644449" className="hover:text-signova-gold transition-colors">+92 309 8644449</a> <span className="text-xs font-sans text-signova-dark/50 uppercase tracking-wider">(WhatsApp)</span>
+                  </p>
+                </div>
               </div>
             </motion.div>
 
@@ -75,42 +88,47 @@ export default function Contact() {
               transition={{ delay: 0.2 }}
               className="flex gap-6 items-start"
             >
-              <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center text-signova-gold shrink-0 border border-signova-beige shadow-sm">
+              <div className="w-12 h-12 rounded-full bg-signova-ivory flex items-center justify-center text-signova-gold shrink-0 border border-signova-gold/20">
                 <Clock size={24} />
               </div>
               <div>
-                <h3 className="text-xl font-serif text-signova-black mb-2">Working Hours</h3>
-                <p className="text-signova-brown font-light leading-relaxed mb-1">
-                  Mon - Fri: 9:00 AM - 8:00 PM
-                </p>
-                <p className="text-signova-brown font-light leading-relaxed mb-1">
-                  Saturday: 10:00 AM - 6:00 PM
-                </p>
-                <p className="text-signova-brown font-light leading-relaxed">
-                  Sunday: Closed
-                </p>
+                <h3 className="text-sm uppercase tracking-[0.2em] font-semibold text-signova-gold mb-3">Working Hours</h3>
+                <div className="space-y-3">
+                  <div className="grid grid-cols-[100px_1fr] gap-4">
+                    <span className="text-xs uppercase tracking-widest text-signova-dark/60 font-semibold mt-1">Dental</span>
+                    <span className="font-serif text-lg text-signova-dark/80">Daily 4:00 PM – 10:00 PM</span>
+                  </div>
+                  <div className="grid grid-cols-[100px_1fr] gap-4">
+                    <span className="text-xs uppercase tracking-widest text-signova-dark/60 font-semibold mt-1">Physio</span>
+                    <span className="font-serif text-lg text-signova-dark/80">Mon–Sat, 5:00 PM – 9:00 PM</span>
+                  </div>
+                  <div className="grid grid-cols-[100px_1fr] gap-4">
+                    <span className="text-xs uppercase tracking-widest text-signova-dark/60 font-semibold mt-1">Aesthetic</span>
+                    <span className="font-serif text-lg text-signova-dark/80">By Appointment</span>
+                  </div>
+                </div>
               </div>
             </motion.div>
           </div>
 
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="h-[500px] w-full rounded-t-[200px] rounded-b-[40px] overflow-hidden shadow-2xl border border-signova-beige bg-signova-cream relative"
+            className="h-full min-h-[500px] w-full rounded-sm overflow-hidden shadow-[0_10px_30px_rgba(200,163,106,0.15)] border border-signova-gold/20 relative"
           >
-            {/* Simple Map Placeholder (Iframe or Image) */}
+            {/* Map of Sialkot */}
             <iframe 
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d193595.25280010915!2d-74.14482811466085!3d40.69763123328574!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY!5e0!3m2!1sen!2sus!4v1689201389824!5m2!1sen!2sus" 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d107802.26197176518!2d74.45339247657929!3d32.49722228308823!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391eebf05050a257%3A0x65c6ed11df82a794!2sSialkot%2C%20Punjab%2C%20Pakistan!5e0!3m2!1sen!2sus!4v1699999999999!5m2!1sen!2sus" 
               width="100%" 
               height="100%" 
               style={{ border: 0 }} 
               allowFullScreen={false} 
               loading="lazy" 
               referrerPolicy="no-referrer-when-downgrade"
-              title="Signova Location"
-              className="grayscale contrast-125 opacity-80"
+              title="Signova Location Sialkot"
+              className="grayscale-[0.5] contrast-[1.1] opacity-90 absolute inset-0"
             />
           </motion.div>
         </div>

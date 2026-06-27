@@ -2,7 +2,6 @@
 
 import { motion } from 'motion/react';
 import { ShieldCheck, Microscope, HeartHandshake, Sparkles } from 'lucide-react';
-import Image from 'next/image';
 
 const features = [
   { id: 1, title: 'Internationally Certified', icon: ShieldCheck, desc: 'Our practitioners hold global certifications and adhere to international standards.' },
@@ -13,28 +12,22 @@ const features = [
 
 export default function WhyChooseUs() {
   return (
-    <section className="py-24 md:py-32 bg-signova-black text-white relative overflow-hidden">
-      <div className="absolute top-0 right-0 w-full h-full bg-[url('https://picsum.photos/seed/pattern/1000/1000')] opacity-5 mix-blend-overlay pointer-events-none" />
+    <section className="py-24 md:py-32 bg-signova-dark text-signova-white relative overflow-hidden">
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-[-20%] right-[-10%] w-96 h-96 bg-signova-gold opacity-10 blur-[100px] rounded-full" />
+        <div className="absolute bottom-[-20%] left-[-10%] w-96 h-96 bg-signova-deep-gold opacity-10 blur-[100px] rounded-full" />
+      </div>
       
       <div className="container mx-auto px-4 relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div>
-            <motion.h4 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-signova-gold font-serif italic text-lg md:text-xl mb-4"
-            >
-              Why Signova
-            </motion.h4>
             <motion.h2 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
-              className="text-5xl md:text-6xl font-serif leading-[1.1] mb-12"
+              className="text-4xl md:text-6xl font-serif leading-[1.1] mb-12 text-signova-white"
             >
-              The Gold Standard <br/><span className="italic font-light">in Medical Care.</span>
+              The Gold Standard <br/><span className="italic text-signova-gold">in Medical Care.</span>
             </motion.h2>
 
             <div className="space-y-8">
@@ -53,8 +46,8 @@ export default function WhyChooseUs() {
                       <Icon size={24} strokeWidth={1.5} />
                     </div>
                     <div>
-                      <h3 className="text-xl font-serif mb-2 text-white">{feature.title}</h3>
-                      <p className="text-white/60 font-light leading-relaxed">{feature.desc}</p>
+                      <h3 className="text-xl font-serif mb-2 text-signova-white tracking-wide">{feature.title}</h3>
+                      <p className="text-signova-white/60 font-light leading-relaxed text-sm">{feature.desc}</p>
                     </div>
                   </motion.div>
                 );
@@ -67,16 +60,13 @@ export default function WhyChooseUs() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="relative h-[600px] rounded-t-[200px] rounded-b-[40px] overflow-hidden border border-signova-gold/20"
+            className="flex items-center justify-center lg:justify-end py-12 lg:py-0"
           >
-            <Image
-              src="https://picsum.photos/seed/clinic-equipment/800/1000"
-              alt="Signova Advanced Equipment"
-              fill
-              className="object-cover"
-              referrerPolicy="no-referrer"
-            />
-            <div className="absolute inset-0 bg-signova-gold/10 mix-blend-overlay" />
+            <div className="max-w-md text-center lg:text-right">
+              <h3 className="font-cursive text-5xl md:text-7xl lg:text-8xl text-signova-gold leading-tight drop-shadow-2xl">
+                "Because You Deserve to Shine ✦"
+              </h3>
+            </div>
           </motion.div>
         </div>
       </div>

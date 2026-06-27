@@ -2,29 +2,25 @@
 
 import { motion } from 'motion/react';
 import { Star, Quote } from 'lucide-react';
-import Image from 'next/image';
 
 const testimonials = [
   {
     id: 1,
-    name: 'Aisha K.',
-    treatment: 'Hydra Facial',
-    text: 'The most luxurious clinical experience I have ever had. The staff is incredibly professional, and my skin has never looked better.',
-    image: 'https://picsum.photos/seed/user1/100/100',
+    name: 'Valued Customer',
+    treatment: 'Aesthetic Patient',
+    text: 'Had a wonderful experience at Signova! The doctor was professional and guided me throughout the treatment. The staff was very welcoming, and the clinic environment was clean and comfortable. I noticed positive results after my treatment. Highly recommended for anyone looking for trusted skincare and aesthetic treatments in Sialkot.',
   },
   {
     id: 2,
-    name: 'Omar M.',
-    treatment: 'Dental Implants',
-    text: 'I was always afraid of the dentist until I visited Signova. The environment is relaxing, and Dr. Carter made the entire process painless.',
-    image: 'https://picsum.photos/seed/user2/100/100',
+    name: 'Physio Patient',
+    treatment: 'Physiotherapy',
+    text: "Dr. Fatima is absolutely amazing. My back pain was so severe I couldn't walk properly. After just 3 sessions of physiotherapy at Signova, I feel like a new person. The clinic is clean, professional and the staff truly cares.",
   },
   {
     id: 3,
-    name: 'Zara H.',
-    treatment: 'Physiotherapy',
-    text: 'After months of back pain, the customized physiotherapy plan at Signova gave me my life back. Five-star facility and care.',
-    image: 'https://picsum.photos/seed/user3/100/100',
+    name: 'Dental Patient',
+    treatment: 'Dental Care',
+    text: 'Best dental clinic in Sialkot! The scaling and polishing results were incredible. The environment is so calm and luxurious — nothing like a typical dental clinic. Will definitely come back!',
   },
 ];
 
@@ -37,7 +33,7 @@ export default function Testimonials() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-signova-gold font-serif italic text-lg md:text-xl mb-4"
+            className="font-cursive text-3xl md:text-4xl text-signova-gold mb-2"
           >
             Patient Stories
           </motion.h4>
@@ -46,13 +42,27 @@ export default function Testimonials() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-5xl md:text-6xl font-serif leading-[1.1] text-signova-black"
+            className="text-4xl md:text-6xl font-serif leading-[1.1] text-signova-dark mb-8"
           >
-            Words of <span className="italic font-light">Trust.</span>
+            Words of Trust
           </motion.h2>
+
+          <motion.div
+             initial={{ opacity: 0, y: 20 }}
+             whileInView={{ opacity: 1, y: 0 }}
+             viewport={{ once: true }}
+             transition={{ delay: 0.2 }}
+             className="inline-flex items-center gap-3 bg-signova-white px-6 py-3 rounded-full border border-signova-gold/20 shadow-sm"
+          >
+            <div className="flex gap-1 text-[#FBBC05]">
+              {[...Array(5)].map((_, i) => <Star key={i} size={16} fill="currentColor" />)}
+            </div>
+            <div className="h-4 w-[1px] bg-signova-gold/20"></div>
+            <span className="text-[10px] uppercase tracking-widest font-bold text-signova-dark">4.9 / 5 on Google</span>
+          </motion.div>
         </div>
 
-        <div className="flex flex-wrap md:flex-nowrap justify-center gap-8">
+        <div className="flex flex-col lg:flex-row justify-center gap-8 max-w-7xl mx-auto">
           {testimonials.map((testimonial, index) => (
             <motion.div
               key={testimonial.id}
@@ -60,9 +70,9 @@ export default function Testimonials() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.2 }}
-              className="bg-white/60 rounded-[3rem] p-8 md:p-10 w-full md:w-1/3 shadow-sm border border-signova-beige relative hover:bg-white transition-colors duration-300"
+              className="bg-signova-white rounded-sm p-8 md:p-10 w-full lg:w-1/3 shadow-[0_5px_15px_rgba(200,163,106,0.05)] border border-signova-gold/10 relative hover:border-signova-gold/30 hover:shadow-[0_15px_30px_rgba(200,163,106,0.1)] transition-all duration-300 flex flex-col"
             >
-              <div className="absolute top-8 right-8 text-signova-cream opacity-50">
+              <div className="absolute top-8 right-8 text-signova-gold/20">
                 <Quote size={40} className="fill-current" />
               </div>
               
@@ -70,22 +80,17 @@ export default function Testimonials() {
                 {[...Array(5)].map((_, i) => <Star key={i} size={18} fill="currentColor" />)}
               </div>
               
-              <p className="text-signova-black opacity-70 font-light leading-relaxed mb-8 italic">
-                &quot;{testimonial.text}&quot;
+              <p className="text-signova-dark opacity-80 font-light leading-relaxed mb-8 italic flex-grow">
+                "{testimonial.text}"
               </p>
               
-              <div className="flex items-center gap-4">
-                <Image
-                  src={testimonial.image}
-                  alt={testimonial.name}
-                  width={50}
-                  height={50}
-                  className="rounded-full object-cover border border-signova-beige/50"
-                  referrerPolicy="no-referrer"
-                />
+              <div className="flex items-center gap-4 mt-auto">
+                <div className="w-12 h-12 rounded-full bg-signova-ivory flex items-center justify-center text-signova-gold font-serif text-xl border border-signova-gold/20 shrink-0">
+                  {testimonial.name.charAt(0)}
+                </div>
                 <div>
-                  <h4 className="font-serif text-lg text-signova-black">{testimonial.name}</h4>
-                  <p className="text-xs uppercase tracking-widest text-signova-gold font-semibold mt-1">{testimonial.treatment}</p>
+                  <h4 className="font-serif text-lg text-signova-dark">{testimonial.name}</h4>
+                  <p className="text-[10px] uppercase tracking-widest text-signova-gold font-semibold mt-1">{testimonial.treatment}</p>
                 </div>
               </div>
             </motion.div>

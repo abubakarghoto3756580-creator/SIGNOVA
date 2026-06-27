@@ -1,71 +1,65 @@
 'use client';
 
 import { motion } from 'motion/react';
-import Image from 'next/image';
+import { Award, CheckCircle2 } from 'lucide-react';
 
 const doctors = [
   {
     id: 1,
-    name: 'Dr. Sarah Mitchell',
-    specialty: 'Aesthetic Dermatologist',
-    qualification: 'MD, FAAD',
-    experience: '12 Years Experience',
-    image: 'https://picsum.photos/seed/doc1/600/800',
+    name: 'Dr. Fatima Maqbool',
+    initials: 'FM',
+    title: 'Consultant & Manual Physiotherapist',
+    qualification: 'DPT, University of Sialkot (UOS)',
+    badge: 'Gold Medalist ⭐',
+    specialtyTags: ['Certified Cupping Therapist', 'Certified EMS Trainer'],
+    treatments: 'Back pain, Knee pain, Neck stiffness, Sciatica, Cerebral palsy, Frozen shoulder, Generalized body weakness, Hijama therapy, Soft tissue massage, Post-operative exercises, Paralysis/Stroke, Vertigo, Ankle sprains, Osteoarthritis'
   },
   {
     id: 2,
-    name: 'Dr. James Carter',
-    specialty: 'Cosmetic Dentist',
-    qualification: 'DDS, MSc',
-    experience: '15 Years Experience',
-    image: 'https://picsum.photos/seed/doc2/600/800',
-  },
-  {
-    id: 3,
-    name: 'Dr. Emily Chen',
-    specialty: 'Lead Physiotherapist',
-    qualification: 'DPT, OCS',
-    experience: '8 Years Experience',
-    image: 'https://picsum.photos/seed/doc3/600/800',
+    name: 'Dr. Muhammad Abubakar',
+    initials: 'MA',
+    title: 'Doctor of Physical Therapy',
+    qualification: 'DPT, USKT',
+    badge: null,
+    specialtyTags: ['Certified in Cupping Therapy'],
+    treatments: "Arthritis, Back Pain, Neck Pain, Frozen Shoulder, Spinal Issues, Stroke, Tennis Elbow, Facial & Bell's Palsy, Sciatica, Muscle Weakness, Peripheral Neuropathy, Plantar Fasciitis & Heel Spurs, Post Operative Conditions"
   }
 ];
 
 export default function Doctors() {
   return (
-    <section id="doctors" className="py-24 md:py-32 bg-signova-cream">
+    <section id="doctors" className="py-24 md:py-32 bg-signova-ivory border-t border-signova-gold/10">
       <div className="container mx-auto px-4">
-        <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
-          <div className="max-w-2xl">
-            <motion.h4 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-signova-gold font-serif italic text-lg md:text-xl mb-4"
-            >
-              Our Specialists
-            </motion.h4>
-            <motion.h2 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
-              className="text-5xl md:text-6xl font-serif leading-[1.1] text-signova-black"
-            >
-              World-Class <span className="italic font-light">Medical Minds.</span>
-            </motion.h2>
-          </div>
-          <motion.a 
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
+        <div className="text-center max-w-3xl mx-auto mb-20">
+          <motion.h4 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            href="#all-doctors" 
-            className="hidden md:inline-flex px-6 py-3 border border-signova-gold rounded-full text-signova-gold hover:bg-signova-gold hover:text-white transition-colors text-xs uppercase tracking-widest font-semibold"
+            className="font-cursive text-3xl md:text-4xl text-signova-gold mb-2"
           >
-            View All Doctors
-          </motion.a>
+            Our Specialists
+          </motion.h4>
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="text-4xl md:text-6xl font-serif leading-[1.1] text-signova-dark mb-6"
+          >
+            World-Class Medical Minds
+          </motion.h2>
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="flex justify-center"
+          >
+            <div className="w-24 h-[1px] bg-signova-gold mb-6" />
+          </motion.div>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
           {doctors.map((doctor, index) => (
             <motion.div
               key={doctor.id}
@@ -73,31 +67,45 @@ export default function Doctors() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.2 }}
-              className="group cursor-pointer"
+              className="bg-signova-white rounded-sm p-8 md:p-10 border border-transparent hover:border-signova-gold shadow-[0_5px_15px_rgba(200,163,106,0.05)] hover:shadow-[0_15px_30px_rgba(200,163,106,0.15)] transition-all flex flex-col"
             >
-              <div className="relative h-[450px] rounded-t-[100px] rounded-b-[30px] overflow-hidden mb-6 border border-signova-beige/50 shadow-md group-hover:shadow-xl transition-shadow duration-300">
-                <Image
-                  src={doctor.image}
-                  alt={doctor.name}
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
-                  referrerPolicy="no-referrer"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-signova-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-8">
-                  <a href="#appointment" className="w-full bg-signova-gold text-white text-center py-4 rounded-full text-xs uppercase tracking-[0.2em] font-semibold hover:bg-white hover:text-signova-gold transition-colors">
-                    Book Consultation
-                  </a>
+              <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6 mb-8 text-center sm:text-left">
+                <div className="w-24 h-24 rounded-full bg-signova-gold/10 flex items-center justify-center text-signova-gold border border-signova-gold/30 shrink-0">
+                  <span className="font-serif text-3xl tracking-widest">{doctor.initials}</span>
+                </div>
+                <div>
+                  <h3 className="font-serif text-3xl text-signova-dark mb-2">{doctor.name}</h3>
+                  <p className="text-sm uppercase tracking-widest font-semibold text-signova-gold mb-2">
+                    {doctor.title}
+                  </p>
+                  <p className="text-sm text-signova-dark/70 font-medium mb-2">{doctor.qualification}</p>
+                  {doctor.badge && (
+                    <div className="inline-flex items-center gap-1 bg-signova-deep-gold text-white px-3 py-1 rounded-sm text-xs font-semibold tracking-wider">
+                      <Award size={14} />
+                      {doctor.badge}
+                    </div>
+                  )}
                 </div>
               </div>
-              <div className="text-center">
-                <h3 className="font-serif text-2xl text-signova-black mb-1">{doctor.name}</h3>
-                <p className="text-signova-gold font-medium mb-2">{doctor.specialty}</p>
-                <div className="flex items-center justify-center gap-4 text-xs text-signova-black opacity-60 font-medium tracking-wide">
-                  <span>{doctor.qualification}</span>
-                  <span className="w-1 h-1 rounded-full bg-signova-gold" />
-                  <span>{doctor.experience}</span>
-                </div>
+
+              <div className="mb-6 flex flex-wrap gap-2 justify-center sm:justify-start">
+                {doctor.specialtyTags.map((tag, i) => (
+                  <span key={i} className="px-3 py-1 bg-signova-ivory border border-signova-gold/20 text-signova-dark/80 text-[10px] uppercase tracking-widest rounded-sm">
+                    {tag}
+                  </span>
+                ))}
               </div>
+
+              <div className="mb-8 flex-grow">
+                <h5 className="text-xs uppercase tracking-widest text-signova-dark font-bold mb-3 border-b border-signova-gold/20 pb-2">Treatments</h5>
+                <p className="text-sm text-signova-dark/70 leading-relaxed font-light">
+                  {doctor.treatments}
+                </p>
+              </div>
+
+              <a href="#appointment" className="w-full block bg-signova-gold text-white text-center py-4 rounded-sm text-xs uppercase tracking-[0.2em] font-semibold hover:bg-signova-deep-gold transition-colors">
+                Book Consultation
+              </a>
             </motion.div>
           ))}
         </div>

@@ -3,13 +3,19 @@
 @theme {
   --color-signova-ivory: #F8F3EC;
   --color-signova-cream: #F5EBDD;
-  --color-signova-beige: #E7D3B2;
   --color-signova-gold: #C8A36A;
-  --color-signova-brown: #7A5C3E;
-  --color-signova-black: #2B2118;
+  --color-signova-deep-gold: #A07840;
+  --color-signova-dark: #2B1A0E;
+  --color-signova-white: #FFFFFF;
+  
+  /* Fallback aliases for any existing components during migration */
+  --color-signova-beige: #E7D3B2;
+  --color-signova-brown: #2B1A0E;
+  --color-signova-black: #2B1A0E;
   
   --font-sans: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
   --font-serif: var(--font-serif), ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-cursive: var(--font-cursive), cursive;
 }
 
 @layer utilities {
@@ -19,5 +25,20 @@
 }
 
 body {
-  @apply bg-signova-ivory text-signova-black;
+  @apply bg-signova-ivory text-signova-dark;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-signova-ivory);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-signova-gold);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-signova-deep-gold);
 }
