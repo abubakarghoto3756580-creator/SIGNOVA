@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+@theme {
+  --color-signova-ivory: #F8F3EC;
+  --color-signova-cream: #F5EBDD;
+  --color-signova-beige: #E7D3B2;
+  --color-signova-gold: #C8A36A;
+  --color-signova-brown: #7A5C3E;
+  --color-signova-black: #2B2118;
+  
+  --font-sans: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-serif), ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+body {
+  @apply bg-signova-ivory text-signova-black;
+}

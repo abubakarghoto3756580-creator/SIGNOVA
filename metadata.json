@@ -1,0 +1,6 @@
+{
+  "name": "Signova",
+  "description": "Premium Aesthetic, Dental, and Physiotherapy Clinic.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
