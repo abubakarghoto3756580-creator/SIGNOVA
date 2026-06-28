@@ -1,6 +1,7 @@
 import type {Metadata} from 'next';
 import { Inter, Cormorant_Garamond, Great_Vibes } from 'next/font/google';
 import './globals.css';
+import FloatingButtons from '@/components/FloatingButtons';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-sans' });
 const cormorant = Cormorant_Garamond({ weight: ['300', '400', '500', '600', '700'], subsets: ['latin'], variable: '--font-serif' });
@@ -21,6 +22,7 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
     <html lang="en" className={`${inter.variable} ${cormorant.variable} ${greatVibes.variable} scroll-smooth`}>
       <body className="font-sans bg-signova-ivory text-signova-dark antialiased" suppressHydrationWarning>
         {children}
+        <FloatingButtons />
       </body>
     </html>
   );

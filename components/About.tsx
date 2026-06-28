@@ -47,7 +47,7 @@ export default function About() {
               })}
             </div>
             
-            <a href="#about-us" className="inline-flex items-center gap-2 text-signova-dark text-xs uppercase tracking-widest font-semibold border-b border-signova-gold pb-1 hover:text-signova-gold transition-colors">
+            <a href="#about" className="inline-flex items-center gap-2 text-signova-dark text-xs uppercase tracking-widest font-semibold border-b border-signova-gold pb-1 hover:text-signova-gold transition-colors">
               Discover Our Approach
             </a>
           </motion.div>

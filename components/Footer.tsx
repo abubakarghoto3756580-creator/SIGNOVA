@@ -21,7 +21,7 @@ export default function Footer() {
               <a href="https://instagram.com/signovaofficial" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full border border-signova-gold/20 flex items-center justify-center text-signova-gold hover:bg-signova-gold hover:text-signova-white transition-colors">
                 <Instagram size={18} />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full border border-signova-gold/20 flex items-center justify-center text-signova-gold hover:bg-signova-gold hover:text-signova-white transition-colors">
+              <a href="https://facebook.com/signovaofficial" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full border border-signova-gold/20 flex items-center justify-center text-signova-gold hover:bg-signova-gold hover:text-signova-white transition-colors">
                 <Facebook size={18} />
               </a>
             </div>
@@ -48,27 +48,16 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="font-serif text-xl mb-6 text-signova-white">Newsletter</h4>
-            <p className="text-signova-white/60 font-light mb-4 text-sm">Subscribe for exclusive offers and wellness tips.</p>
-            <form className="flex">
-              <input 
-                type="email" 
-                placeholder="Your email address" 
-                className="w-full bg-signova-white/5 border border-signova-gold/20 rounded-l-sm py-3 px-6 text-signova-white placeholder-signova-white/40 focus:outline-none focus:border-signova-gold transition-colors font-light"
-              />
-              <button className="bg-signova-gold text-signova-white px-6 rounded-r-sm font-medium hover:bg-signova-deep-gold transition-colors text-xs uppercase tracking-widest">
-                Join
-              </button>
-            </form>
+            <h4 className="font-serif text-xl mb-6 text-signova-white">Get in Touch</h4>
+            <p className="text-signova-white/60 font-light mb-4 text-sm">Have a question? Chat with us directly on WhatsApp.</p>
+            <a href="https://wa.me/923098644429" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center bg-[#25D366] text-white px-6 py-3 rounded-sm font-medium hover:bg-[#20b858] transition-colors text-xs uppercase tracking-widest w-full text-center">
+              Chat on WhatsApp
+            </a>
           </div>
         </div>
 
-        <div className="pt-8 border-t border-signova-gold/20 flex flex-col md:flex-row justify-between items-center gap-4 text-signova-white/50 text-[10px] uppercase tracking-[0.2em] font-semibold">
+        <div className="pt-8 border-t border-signova-gold/20 flex flex-col md:flex-row justify-center items-center gap-4 text-signova-white/50 text-[10px] uppercase tracking-[0.2em] font-semibold">
           <p>&copy; {new Date().getFullYear()} Signova Aesthetic & Dental Studio. All Rights Reserved.</p>
-          <div className="flex gap-6">
-            <a href="#" className="hover:text-signova-gold transition-colors">Privacy</a>
-            <a href="#" className="hover:text-signova-gold transition-colors">Terms</a>
-          </div>
         </div>
       </div>
     </footer>

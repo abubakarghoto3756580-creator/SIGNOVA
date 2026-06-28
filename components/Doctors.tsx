@@ -109,6 +109,20 @@ export default function Doctors() {
             </motion.div>
           ))}
         </div>
+
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mt-12 text-center"
+        >
+          <a 
+            href="#doctors" 
+            className="inline-flex px-8 py-4 border border-signova-gold rounded-sm text-signova-gold hover:bg-signova-gold hover:text-signova-white transition-colors text-xs uppercase tracking-[0.2em] font-semibold"
+          >
+            View All Doctors
+          </a>
+        </motion.div>
       </div>
     </section>
   );
