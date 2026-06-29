@@ -1,11 +1,48 @@
 'use client';
 
-import { motion } from 'motion/react';
-import { Phone, MessageCircle } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
+import { Phone, MessageCircle, ChevronUp } from 'lucide-react';
 
 export default function FloatingButtons() {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const toggleVisibility = () => {
+      if (window.scrollY > 400) {
+        setIsVisible(true);
+      } else {
+        setIsVisible(false);
+      }
+    };
+    window.addEventListener('scroll', toggleVisibility);
+    return () => window.removeEventListener('scroll', toggleVisibility);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
+
   return (
     <div className="fixed bottom-6 right-6 z-50 flex flex-col gap-4">
+      {/* === PHASE 5: BACK TO TOP BUTTON === */}
+      <AnimatePresence>
+        {isVisible && (
+          <motion.button
+            initial={{ scale: 0, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            exit={{ scale: 0, opacity: 0 }}
+            onClick={scrollToTop}
+            className="w-14 h-14 bg-signova-gold text-white rounded-full flex items-center justify-center shadow-lg hover:bg-signova-deep-gold transition-colors duration-300 mx-auto"
+          >
+            <ChevronUp size={28} />
+          </motion.button>
+        )}
+      </AnimatePresence>
+
       <motion.a
         href="tel:+92524352215"
         initial={{ scale: 0, opacity: 0 }}
