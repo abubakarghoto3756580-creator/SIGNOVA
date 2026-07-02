@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'motion/react';
+import Image from 'next/image';
 import { Award, CheckCircle2 } from 'lucide-react';
 
 const doctors = [
@@ -8,6 +9,7 @@ const doctors = [
     id: 1,
     name: 'Dr. Fatima Maqbool',
     initials: 'FM',
+    photo: '/images/doctors/dr-fatima.jpg',
     title: 'Consultant & Manual Physiotherapist',
     qualification: 'DPT, University of Sialkot (UOS)',
     badge: 'Gold Medalist ⭐',
@@ -18,6 +20,7 @@ const doctors = [
     id: 2,
     name: 'Dr. Muhammad Abubakar',
     initials: 'MA',
+    photo: '/images/doctors/dr-abubakar.jpg',
     title: 'Doctor of Physical Therapy',
     qualification: 'DPT, USKT',
     badge: null,
@@ -70,8 +73,13 @@ export default function Doctors() {
               className="bg-signova-white rounded-sm p-8 md:p-10 border border-transparent hover:border-signova-gold shadow-[0_5px_15px_rgba(200,163,106,0.05)] hover:shadow-[0_15px_30px_rgba(200,163,106,0.15)] transition-all flex flex-col"
             >
               <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6 mb-8 text-center sm:text-left">
-                <div className="w-24 h-24 rounded-full bg-signova-gold/10 flex items-center justify-center text-signova-gold border border-signova-gold/30 shrink-0">
-                  <span className="font-serif text-3xl tracking-widest">{doctor.initials}</span>
+                <div className="relative w-24 h-24 rounded-full overflow-hidden border border-signova-gold/30 shrink-0">
+                  <Image
+                    src={doctor.photo}
+                    alt={doctor.name}
+                    fill
+                    className="object-cover"
+                  />
                 </div>
                 <div>
                   <h3 className="font-serif text-3xl text-signova-dark mb-2">{doctor.name}</h3>
@@ -126,4 +134,4 @@ export default function Doctors() {
       </div>
     </section>
   );
-}
+              }
