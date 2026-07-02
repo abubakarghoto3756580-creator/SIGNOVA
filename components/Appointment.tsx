@@ -29,7 +29,7 @@ export default function Appointment() {
 
   return (
     <section id="appointment" className="py-24 md:py-32 bg-signova-dark relative overflow-hidden">
-      <div className="absolute inset-0 bg-[url('https://picsum.photos/seed/pattern/1000/1000')] opacity-5 mix-blend-overlay pointer-events-none" />
+      <div className="absolute inset-0 bg-[url('/images/general/physio-action.jpg')] bg-cover bg-center opacity-5 mix-blend-overlay pointer-events-none" />
       
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto bg-signova-black/40 backdrop-blur-md rounded-sm border border-signova-gold/20 p-8 md:p-16">

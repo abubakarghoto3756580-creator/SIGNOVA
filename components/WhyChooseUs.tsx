@@ -64,7 +64,7 @@ export default function WhyChooseUs() {
           >
             <div className="max-w-md text-center lg:text-right">
               <h3 className="font-cursive text-5xl md:text-7xl lg:text-8xl text-signova-gold leading-tight drop-shadow-2xl">
-                "Because You Deserve to Shine ✦"
+                &quot;Because You Deserve to Shine ✦&quot;
               </h3>
             </div>
           </motion.div>

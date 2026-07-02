@@ -9,15 +9,15 @@ const cases = [
   {
     id: 1,
     category: 'Scaling & Polishing',
-    before: 'https://picsum.photos/seed/teethbefore/800/600',
-    after: 'https://picsum.photos/seed/teethafter/800/600',
+    before: '/images/before-after/teeth-before.jpg',
+    after: '/images/before-after/teeth-after.jpg',
     description: 'Professional plaque removal and polishing for a brighter smile.',
   },
   {
     id: 2,
     category: 'Hydra Facial',
-    before: 'https://picsum.photos/seed/skinbefore/800/600',
-    after: 'https://picsum.photos/seed/skinafter/800/600',
+    before: '/images/before-after/skin-before.jpg',
+    after: '/images/before-after/skin-after.jpg',
     description: 'Deep cleansing and hydration for glowing, youthful skin.',
   },
 ];
@@ -63,7 +63,7 @@ export default function BeforeAfter() {
             transition={{ delay: 0.2 }}
             className="text-signova-dark/70 text-lg font-light italic"
           >
-            "A small step today for a healthier, brighter tomorrow."
+            &quot;A small step today for a healthier, brighter tomorrow.&quot;
           </motion.p>
         </div>
 

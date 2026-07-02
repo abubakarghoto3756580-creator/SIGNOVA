@@ -61,7 +61,7 @@ export default function About() {
           >
             <div className="relative h-[600px] w-full max-w-md rounded-t-[200px] rounded-b-[40px] overflow-hidden shadow-2xl border border-signova-gold/20">
               <Image
-                src="https://picsum.photos/seed/about2/800/1200"
+                src="/images/clinic/reception.jpg"
                 alt="Signova Clinic Interior"
                 fill
                 className="object-cover"

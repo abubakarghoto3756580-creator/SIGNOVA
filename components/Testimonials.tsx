@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'motion/react';
+import Image from 'next/image';
 import { Star, Quote } from 'lucide-react';
 
 const testimonials = [
@@ -9,6 +10,7 @@ const testimonials = [
     name: 'Valued Customer',
     treatment: 'Aesthetic Patient',
     text: 'Had a wonderful experience at Signova! The doctor was professional and guided me throughout the treatment. The staff was very welcoming, and the clinic environment was clean and comfortable. I noticed positive results after my treatment. Highly recommended for anyone looking for trusted skincare and aesthetic treatments in Sialkot.',
+    image: '/images/general/testimonial-1.jpg',
   },
   {
     id: 2,
@@ -81,12 +83,22 @@ export default function Testimonials() {
               </div>
               
               <p className="text-signova-dark opacity-80 font-light leading-relaxed mb-8 italic flex-grow">
-                "{testimonial.text}"
+                &quot;{testimonial.text}&quot;
               </p>
               
               <div className="flex items-center gap-4 mt-auto">
-                <div className="w-12 h-12 rounded-full bg-signova-ivory flex items-center justify-center text-signova-gold font-serif text-xl border border-signova-gold/20 shrink-0">
-                  {testimonial.name.charAt(0)}
+                <div className="relative w-12 h-12 rounded-full bg-signova-ivory flex items-center justify-center text-signova-gold font-serif text-xl border border-signova-gold/20 shrink-0 overflow-hidden">
+                  {testimonial.image ? (
+                    <Image
+                      src={testimonial.image}
+                      alt={testimonial.name}
+                      fill
+                      className="object-cover"
+                      referrerPolicy="no-referrer"
+                    />
+                  ) : (
+                    testimonial.name.charAt(0)
+                  )}
                 </div>
                 <div>
                   <h4 className="font-serif text-lg text-signova-dark">{testimonial.name}</h4>

@@ -1,15 +1,15 @@
 'use client';
 
 import { motion } from 'motion/react';
-import { Sparkles, Activity, Droplets, Smile, Zap, Heart } from 'lucide-react';
+import Image from 'next/image';
 
 const services = [
-  { id: 1, title: 'Dental & Smile Design', description: 'Scaling, polishing, implants, orthodontics, teeth whitening', icon: Smile },
-  { id: 2, title: 'Aesthetic & Skin Care', description: 'Hydra Facial, Classic Facial, anti-aging treatments, skin resurfacing', icon: Sparkles },
-  { id: 3, title: 'Physiotherapy', description: 'Back pain, stroke recovery, muscle strengthening, post-op rehab', icon: Activity },
-  { id: 4, title: 'Hijama Therapy', description: 'Wet & dry cupping, detox, immunity boost, pain management', icon: Droplets },
-  { id: 5, title: 'EMS Training', description: 'Electric Muscle Stimulation for fitness and recovery', icon: Zap },
-  { id: 6, title: 'Massage & Wellness', description: 'Full Body Muscle Relaxation, Deep Tissue Massage', icon: Heart },
+  { id: 1, title: 'Dental & Smile Design', description: 'Scaling, polishing, implants, orthodontics, teeth whitening', image: '/images/services/dental.jpg' },
+  { id: 2, title: 'Aesthetic & Skin Care', description: 'Hydra Facial, Classic Facial, anti-aging treatments, skin resurfacing', image: '/images/services/aesthetic.jpg' },
+  { id: 3, title: 'Physiotherapy', description: 'Back pain, stroke recovery, muscle strengthening, post-op rehab', image: '/images/services/physiotherapy.jpg' },
+  { id: 4, title: 'Hijama Therapy', description: 'Wet & dry cupping, detox, immunity boost, pain management', image: '/images/services/hijama.jpg' },
+  { id: 5, title: 'EMS Training', description: 'Electric Muscle Stimulation for fitness and recovery', image: '/images/services/ems.jpg' },
+  { id: 6, title: 'Massage & Wellness', description: 'Full Body Muscle Relaxation, Deep Tissue Massage', image: '/images/services/massage.jpg' },
 ];
 
 export default function Services() {
@@ -47,7 +47,6 @@ export default function Services() {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service, index) => {
-            const Icon = service.icon;
             return (
               <motion.div
                 key={service.id}
@@ -58,8 +57,14 @@ export default function Services() {
                 whileHover={{ y: -5 }}
                 className="group relative bg-signova-white rounded-sm p-8 flex flex-col transition-all duration-300 border border-transparent hover:border-signova-gold hover:shadow-[0_15px_30px_rgba(200,163,106,0.15)]"
               >
-                <div className="w-14 h-14 rounded-full bg-signova-ivory flex items-center justify-center text-signova-gold mb-6 border border-signova-gold/20 transition-colors duration-300 group-hover:bg-signova-gold group-hover:text-signova-white">
-                  <Icon size={24} strokeWidth={1.5} />
+                <div className="relative w-16 h-16 rounded-full bg-signova-ivory flex items-center justify-center text-signova-gold mb-6 border border-signova-gold/20 overflow-hidden shadow-sm">
+                  <Image
+                    src={service.image}
+                    alt={service.title}
+                    fill
+                    className="object-cover"
+                    referrerPolicy="no-referrer"
+                  />
                 </div>
                 
                 <h3 className="font-serif text-2xl text-signova-dark mb-3">{service.title}</h3>
