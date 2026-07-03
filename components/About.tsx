@@ -71,46 +71,6 @@ export default function About() {
             </div>
           </motion.div>
         </div>
-
-        <div className="grid grid-cols-2 gap-4 max-w-2xl mx-auto mt-16">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="relative"
-          >
-            <div className="relative h-56 rounded-xl overflow-hidden shadow-lg border border-signova-gold/20">
-              <Image
-                src="https://i.postimg.cc/wvxXjmrc/Clinic-reception-interior-Pakistan-202607010026-3.jpg"
-                alt="Signova Reception"
-                fill
-                className="object-cover"
-                referrerPolicy="no-referrer"
-              />
-            </div>
-            <p className="text-center text-xs uppercase tracking-widest text-signova-dark/70 font-semibold mt-3">Reception</p>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.15 }}
-            className="relative"
-          >
-            <div className="relative h-56 rounded-xl overflow-hidden shadow-lg border border-signova-gold/20">
-              <Image
-                src="https://i.postimg.cc/sDGpxyTm/Clinic-treatment-room-interior-202607010026-2.jpg"
-                alt="Signova Treatment Room"
-                fill
-                className="object-cover"
-                referrerPolicy="no-referrer"
-              />
-            </div>
-            <p className="text-center text-xs uppercase tracking-widest text-signova-dark/70 font-semibold mt-3">Treatment Room</p>
-          </motion.div>
-        </div>
       </div>
     </section>
   );
