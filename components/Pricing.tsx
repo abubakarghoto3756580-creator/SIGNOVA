@@ -109,7 +109,7 @@ export default function Pricing() {
   return (
     <section id="pricing" className="py-24 md:py-32 bg-[#2B1A0E] relative overflow-hidden">
       {/* === PHASE 3: PRICING SECTION === */}
-      <div className="absolute inset-0 bg-[url('/images/clinic/treatment-room.jpg')] bg-cover bg-center opacity-5 mix-blend-overlay pointer-events-none" />
+      <div className="absolute inset-0 bg-[url('https://i.postimg.cc/sDGpxyTm/Clinic-treatment-room-interior-202607010026-2.jpg')] bg-cover bg-center opacity-5 mix-blend-overlay pointer-events-none" />
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-20">
           <motion.h4 

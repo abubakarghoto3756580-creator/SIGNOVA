@@ -11,7 +11,16 @@ const nextConfig: NextConfig = {
   // @ts-ignore
   allowedDevOrigins: ['*.asia-east1.run.app'],
   images: {
-    domains: ['picsum.photos'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'picsum.photos',
+      },
+      {
+        protocol: 'https',
+        hostname: 'i.postimg.cc',
+      }
+    ],
   },
   output: 'standalone',
   transpilePackages: ['motion'],

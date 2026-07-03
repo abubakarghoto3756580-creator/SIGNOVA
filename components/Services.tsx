@@ -4,12 +4,12 @@ import { motion } from 'motion/react';
 import Image from 'next/image';
 
 const services = [
-  { id: 1, title: 'Dental & Smile Design', description: 'Scaling, polishing, implants, orthodontics, teeth whitening', image: '/images/services/dental.jpg' },
-  { id: 2, title: 'Aesthetic & Skin Care', description: 'Hydra Facial, Classic Facial, anti-aging treatments, skin resurfacing', image: '/images/services/aesthetic.jpg' },
+  { id: 1, title: 'Dental & Smile Design', description: 'Scaling, polishing, implants, orthodontics, teeth whitening', image: 'https://i.postimg.cc/SNYWRqgT/Dentist-cleaning-patient-teeth-202607010026-4.jpg' },
+  { id: 2, title: 'Aesthetic & Skin Care', description: 'Hydra Facial, Classic Facial, anti-aging treatments, skin resurfacing', image: 'https://i.postimg.cc/P5G18cck/Woman-receiving-hydrafacial-trea-202607010026.jpg' },
   { id: 3, title: 'Physiotherapy', description: 'Back pain, stroke recovery, muscle strengthening, post-op rehab', image: '/images/services/physiotherapy.jpg' },
-  { id: 4, title: 'Hijama Therapy', description: 'Wet & dry cupping, detox, immunity boost, pain management', image: '/images/services/hijama.jpg' },
-  { id: 5, title: 'EMS Training', description: 'Electric Muscle Stimulation for fitness and recovery', image: '/images/services/ems.jpg' },
-  { id: 6, title: 'Massage & Wellness', description: 'Full Body Muscle Relaxation, Deep Tissue Massage', image: '/images/services/massage.jpg' },
+  { id: 4, title: 'Hijama Therapy', description: 'Wet & dry cupping, detox, immunity boost, pain management', image: 'https://i.postimg.cc/rFRSscfJ/Therapist-performing-hijama-on-p-202607010026-2.jpg' },
+  { id: 5, title: 'EMS Training', description: 'Electric Muscle Stimulation for fitness and recovery', image: 'https://i.postimg.cc/Kzs9T2CD/file-00000000fc2c7206bf6caf81a7bad3da.png' },
+  { id: 6, title: 'Massage & Wellness', description: 'Full Body Muscle Relaxation, Deep Tissue Massage', image: 'https://i.postimg.cc/mrBMm9B5/Therapeutic-massage-in-spa-clinic-202607010026-2.jpg' },
 ];
 
 export default function Services() {

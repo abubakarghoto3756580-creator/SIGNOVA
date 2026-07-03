@@ -9,15 +9,15 @@ const cases = [
   {
     id: 1,
     category: 'Scaling & Polishing',
-    before: '/images/before-after/teeth-before.jpg',
-    after: '/images/before-after/teeth-after.jpg',
+    before: 'https://i.postimg.cc/13pw0BhT/Close-up-photo-of-human-teeth-202607010026.jpg',
+    after: 'https://i.postimg.cc/wB2NZBB8/Human-teeth-after-dental-scaling-202607010026.jpg',
     description: 'Professional plaque removal and polishing for a brighter smile.',
   },
   {
     id: 2,
     category: 'Hydra Facial',
-    before: '/images/before-after/skin-before.jpg',
-    after: '/images/before-after/skin-after.jpg',
+    before: 'https://i.postimg.cc/Y9NsJYWy/Woman-s-face-before-facial-202607010055-2.jpg',
+    after: 'https://i.postimg.cc/NFpP0tbK/Woman-with-improved-skin-202607010055.jpg',
     description: 'Deep cleansing and hydration for glowing, youthful skin.',
   },
 ];

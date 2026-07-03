@@ -10,7 +10,7 @@ const testimonials = [
     name: 'Valued Customer',
     treatment: 'Aesthetic Patient',
     text: 'Had a wonderful experience at Signova! The doctor was professional and guided me throughout the treatment. The staff was very welcoming, and the clinic environment was clean and comfortable. I noticed positive results after my treatment. Highly recommended for anyone looking for trusted skincare and aesthetic treatments in Sialkot.',
-    image: '/images/general/testimonial-1.jpg',
+    image: 'https://i.postimg.cc/zvbxSQrG/file-00000000f2587206a5506a843c741df0.png',
   },
   {
     id: 2,

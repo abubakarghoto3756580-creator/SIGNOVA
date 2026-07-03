@@ -8,7 +8,7 @@ const doctors = [
   {
     id: 1,
     name: 'Dr. Fatima Maqbool',
-    image: '/images/doctors/dr-fatima.jpg',
+    image: 'https://i.postimg.cc/GmkGPKwv/Man-in-medical-scrubs-portrait-202607010026.jpg',
     initials: 'FM',
     title: 'Consultant & Manual Physiotherapist',
     qualification: 'DPT, University of Sialkot (UOS)',
@@ -19,7 +19,7 @@ const doctors = [
   {
     id: 2,
     name: 'Dr. Muhammad Abubakar',
-    image: '/images/doctors/dr-abubakar.jpg',
+    image: 'https://i.postimg.cc/6QcZgQQN/1000095493-png-202607010026.jpg',
     initials: 'MA',
     title: 'Doctor of Physical Therapy',
     qualification: 'DPT, USKT',
