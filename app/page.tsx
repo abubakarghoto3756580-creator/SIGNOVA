@@ -17,7 +17,7 @@ import MobileBottomBar from '@/components/MobileBottomBar';
 
 export default function Home() {
   return (
-    <main className="min-h-screen relative pb-20 md:pb-0">
+    <main className="min-h-screen relative pb-20 md:pb-0 overflow-x-hidden w-full max-w-full">
       <Navbar />
       <Hero />
       <Stats />

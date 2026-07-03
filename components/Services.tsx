@@ -57,9 +57,9 @@ export default function Services() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 whileHover={{ y: -5 }}
-                className="group relative bg-signova-white rounded-sm flex flex-col transition-all duration-300 border border-transparent hover:border-signova-gold hover:shadow-[0_15px_30px_rgba(200,163,106,0.15)]"
+                className="group relative bg-signova-white rounded-sm flex flex-col h-full transition-all duration-300 border border-transparent hover:border-signova-gold hover:shadow-[0_15px_30px_rgba(200,163,106,0.15)]"
               >
-                <div className="relative w-full h-44 rounded-t-sm bg-signova-ivory border-b border-signova-gold/10">
+                <div className="relative w-full aspect-[4/3] rounded-t-sm bg-signova-ivory border-b border-signova-gold/10">
                   {service.image ? (
                     <Image
                       src={service.image}
@@ -80,7 +80,7 @@ export default function Services() {
                 
                 <div className="p-8 pt-10 flex flex-col flex-grow">
                   <h3 className="font-serif text-2xl text-signova-dark mb-3">{service.title}</h3>
-                  <p className="text-sm opacity-70 leading-relaxed text-signova-dark mb-6 flex-grow">
+                  <p className="text-sm opacity-70 leading-relaxed text-signova-dark mb-6 line-clamp-2">
                     {service.description}
                   </p>
                   
