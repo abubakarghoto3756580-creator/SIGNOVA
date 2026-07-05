@@ -16,10 +16,10 @@ export default function Workshop() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="bg-signova-dark rounded-sm border border-signova-gold/20 shadow-[0_10px_40px_rgba(200,163,106,0.2)] mt-4 md:mt-6"
+            className="bg-signova-dark rounded-sm border border-signova-gold/20 shadow-[0_10px_40px_rgba(200,163,106,0.2)] mt-10 md:mt-12 relative z-20"
           >
-            <div className="bg-signova-dark text-signova-white p-8 md:p-12 text-center border-b border-signova-gold/20 relative rounded-t-sm">
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2">
+            <div className="bg-signova-dark text-signova-white p-8 md:p-12 text-center border-b border-signova-gold/20 relative rounded-t-sm z-20">
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 z-30">
                 <span className="bg-signova-gold text-signova-white px-6 py-2 rounded-sm text-[12px] font-bold tracking-[0.2em] uppercase shadow-md whitespace-nowrap">
                   UPCOMING EVENT
                 </span>
