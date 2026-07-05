@@ -72,8 +72,8 @@ export default function Doctors() {
               transition={{ duration: 0.6, delay: index * 0.2 }}
               className="bg-signova-white rounded-sm p-8 md:p-10 border border-transparent hover:border-signova-gold shadow-[0_5px_15px_rgba(200,163,106,0.05)] hover:shadow-[0_15px_30px_rgba(200,163,106,0.15)] transition-all flex flex-col"
             >
-              <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6 mb-8 text-center sm:text-left">
-                <div className="relative aspect-[3/4] w-full max-w-[220px] rounded-lg bg-signova-gold/10 flex items-center justify-center text-signova-gold border border-signova-gold/30 shrink-0 overflow-hidden shadow-sm">
+              <div className="flex flex-col items-center text-center mb-8">
+                <div className="relative aspect-[3/4] w-full max-w-[220px] rounded-lg bg-signova-gold/10 flex items-center justify-center text-signova-gold border border-signova-gold/30 shrink-0 overflow-hidden shadow-sm mb-6">
                   {doctor.image ? (
                     <Image
                       src={doctor.image}
@@ -86,7 +86,7 @@ export default function Doctors() {
                     <span className="font-serif text-5xl tracking-widest">{doctor.initials}</span>
                   )}
                 </div>
-                <div className="flex-1 min-w-0">
+                <div className="max-w-md">
                   <h3 className="font-serif text-2xl md:text-3xl text-signova-dark mb-2">{doctor.name}</h3>
                   <p className="text-xs md:text-sm uppercase tracking-widest font-semibold text-signova-gold mb-2">
                     {doctor.title}
@@ -101,7 +101,7 @@ export default function Doctors() {
                 </div>
               </div>
 
-              <div className="mb-6 flex flex-wrap gap-2 justify-center sm:justify-start">
+              <div className="mb-6 flex flex-wrap gap-2 justify-center">
                 {doctor.specialtyTags.map((tag, i) => (
                   <span key={i} className="px-3 py-1 bg-signova-ivory border border-signova-gold/20 text-signova-dark/80 text-[10px] uppercase tracking-widest rounded-sm">
                     {tag}

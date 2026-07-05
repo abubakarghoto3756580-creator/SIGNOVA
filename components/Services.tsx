@@ -3,7 +3,7 @@
 import { motion } from 'motion/react';
 import Image from 'next/image';
 import { Sparkles, Activity, Droplets, Smile, Zap, Heart } from 'lucide-react';
-import aestheticImg from '../src/assets/images/aesthetic_skincare_1783107059915.jpg';
+import aestheticImg from '../src/assets/images/aesthetic-facial-new.jpg';
 import massageImg from '../src/assets/images/massage_wellness_1783107041050.jpg';
 import physioImg from '../src/assets/images/physiotherapy_clinic_1783107021551.jpg';
 

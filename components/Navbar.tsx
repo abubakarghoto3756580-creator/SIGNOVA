@@ -4,6 +4,8 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Menu, X } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
+import logo from '../src/assets/images/signova-logo.jpg';
 
 const links = [
   { name: 'Home', href: '#home' },
@@ -34,13 +36,18 @@ export default function Navbar() {
         transition={{ duration: 0.5 }}
       >
         <div className="container mx-auto px-4 md:px-8 flex justify-between items-center">
-          <Link href="#home" className="flex flex-col">
-            <span className={`font-serif text-3xl leading-none tracking-wide ${scrolled ? 'text-signova-dark' : 'text-signova-white'}`}>
-              Signova
-            </span>
-            <span className={`text-[10px] uppercase tracking-widest mt-1 ${scrolled ? 'text-signova-gold' : 'text-signova-gold'}`}>
-              Aesthetic & Dental Studio
-            </span>
+          <Link href="#home" className="flex items-center gap-3">
+            <div className="relative w-10 h-10 md:w-12 md:h-12 rounded-full overflow-hidden shrink-0 border border-signova-gold/40">
+              <Image src={logo} alt="Signova Logo" fill className="object-cover" />
+            </div>
+            <div className="flex flex-col">
+              <span className={`font-serif text-3xl leading-none tracking-wide ${scrolled ? 'text-signova-dark' : 'text-signova-white'}`}>
+                Signova
+              </span>
+              <span className={`text-[10px] uppercase tracking-widest mt-1 ${scrolled ? 'text-signova-gold' : 'text-signova-gold'}`}>
+                Aesthetic & Dental Studio
+              </span>
+            </div>
           </Link>
 
           {/* Desktop Nav */}

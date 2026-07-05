@@ -3,6 +3,7 @@
 import { motion } from 'motion/react';
 import Image from 'next/image';
 import { Sparkles, HeartPulse, ShieldCheck, User } from 'lucide-react';
+import receptionImg from '../src/assets/images/clinic-reception-new.jpg';
 
 const features = [
   { icon: Sparkles, text: 'Advanced Aesthetic Care' },
@@ -61,11 +62,10 @@ export default function About() {
           >
             <div className="relative h-[600px] w-full max-w-md rounded-2xl overflow-hidden shadow-2xl border border-signova-gold/20">
               <Image
-                src="https://i.postimg.cc/wvxXjmrc/Clinic-reception-interior-Pakistan-202607010026-3.jpg"
-                alt="Signova Clinic Interior"
+                src={receptionImg}
+                alt="Signova Clinic Reception"
                 fill
                 className="object-cover object-top"
-                referrerPolicy="no-referrer"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-signova-dark/60 via-transparent to-transparent mix-blend-overlay" />
             </div>
