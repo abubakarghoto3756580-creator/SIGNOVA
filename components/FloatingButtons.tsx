@@ -1,11 +1,12 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Phone, ChevronUp } from 'lucide-react';
 
 export default function FloatingButtons() {
   const [isVisible, setIsVisible] = useState(false);
+  const [hideForContact, setHideForContact] = useState(false);
 
   useEffect(() => {
     const toggleVisibility = () => {
@@ -19,6 +20,21 @@ export default function FloatingButtons() {
     return () => window.removeEventListener('scroll', toggleVisibility);
   }, []);
 
+  useEffect(() => {
+    const contactSection = document.getElementById('contact');
+    if (!contactSection) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setHideForContact(entry.isIntersecting);
+      },
+      { threshold: 0.15 }
+    );
+
+    observer.observe(contactSection);
+    return () => observer.disconnect();
+  }, []);
+
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -27,7 +43,11 @@ export default function FloatingButtons() {
   };
 
   return (
-    <div className="fixed bottom-6 right-4 md:right-6 z-[60] flex flex-col gap-3 md:gap-4">
+    <div
+      className={`fixed bottom-6 right-4 md:right-6 z-[60] flex flex-col gap-3 md:gap-4 transition-opacity duration-300 ${
+        hideForContact ? 'opacity-0 pointer-events-none' : 'opacity-100'
+      }`}
+    >
       {/* === PHASE 5: BACK TO TOP BUTTON === */}
       <AnimatePresence>
         {isVisible && (

@@ -5,7 +5,7 @@ import { MapPin, Phone, Clock } from 'lucide-react';
 
 export default function Contact() {
   return (
-    <section id="contact" className="py-24 md:py-32 pb-40 md:pb-32 bg-signova-ivory border-t border-signova-gold/10">
+    <section id="contact" className="py-24 md:py-32 bg-signova-ivory border-t border-signova-gold/10">
       <div className="container mx-auto px-4">
         <div className="text-center max-w-3xl mx-auto mb-20">
           <motion.h4 
@@ -120,7 +120,7 @@ export default function Contact() {
           >
             {/* Map of Sialkot */}
             <iframe 
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d107802.26197176518!2d74.45339247657929!3d32.49722228308823!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391eebf05050a257%3A0x65c6ed11df82a794!2sSialkot%2C%20Punjab%2C%20Pakistan!5e0!3m2!1sen!2sus!4v1699999999999!5m2!1sen!2sus" 
+              src="https://www.google.com/maps?q=1st+Floor,+Tariq+Square,+Kashmir+Road,+Pakka+Garha+Ghumman,+Sialkot,+Pakistan&output=embed" 
               width="100%" 
               height="100%" 
               style={{ border: 0 }} 
