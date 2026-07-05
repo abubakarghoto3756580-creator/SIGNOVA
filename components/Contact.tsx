@@ -5,14 +5,14 @@ import { MapPin, Phone, Clock } from 'lucide-react';
 
 export default function Contact() {
   return (
-    <section id="contact" className="py-24 md:py-32 bg-signova-ivory border-t border-signova-gold/10">
+    <section id="contact" className="py-16 md:py-32 bg-signova-ivory border-t border-signova-gold/10">
       <div className="container mx-auto px-4">
-        <div className="text-center max-w-3xl mx-auto mb-20">
+        <div className="text-center max-w-3xl mx-auto mb-10 md:mb-20">
           <motion.h4 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="font-cursive text-3xl md:text-4xl text-signova-gold mb-2"
+            className="font-cursive text-2xl md:text-4xl text-signova-gold mb-1 md:mb-2"
           >
             Get In Touch
           </motion.h4>
@@ -21,7 +21,7 @@ export default function Contact() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-4xl md:text-6xl font-serif leading-[1.1] text-signova-dark mb-6"
+            className="text-3xl md:text-6xl font-serif leading-[1.1] text-signova-dark mb-3 md:mb-6"
           >
             Visit Signova
           </motion.h2>
@@ -32,7 +32,7 @@ export default function Contact() {
             transition={{ delay: 0.2 }}
             className="flex justify-center"
           >
-            <div className="w-24 h-[1px] bg-signova-gold mb-6" />
+            <div className="w-24 h-[1px] bg-signova-gold mb-4 md:mb-6" />
           </motion.div>
         </div>
 
