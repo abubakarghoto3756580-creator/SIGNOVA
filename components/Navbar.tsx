@@ -37,8 +37,8 @@ export default function Navbar() {
       >
         <div className="container mx-auto px-4 md:px-8 flex justify-between items-center">
           <Link href="#home" className="flex items-center gap-3">
-            <div className="relative w-10 h-10 md:w-12 md:h-12 rounded-full overflow-hidden shrink-0 border border-signova-gold/40">
-              <Image src={logo} alt="Signova Logo" fill className="object-cover" />
+            <div className="relative w-12 h-12 md:w-14 md:h-14 rounded-full overflow-hidden shrink-0 border border-signova-gold/40 bg-signova-cream">
+              <Image src={logo} alt="Signova Logo" fill className="object-contain p-0.5" />
             </div>
             <div className="flex flex-col">
               <span className={`font-serif text-3xl leading-none tracking-wide ${scrolled ? 'text-signova-dark' : 'text-signova-white'}`}>

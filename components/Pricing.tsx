@@ -236,9 +236,7 @@ export default function Pricing() {
                 )}
 
                 <a 
-                  href="https://wa.me/923098644429" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
+                  href="#appointment"
                   className={`w-full block text-center py-4 rounded-sm text-xs uppercase tracking-[0.2em] font-semibold transition-colors mt-auto ${
                     plan.featured
                       ? 'bg-signova-gold text-white hover:bg-signova-deep-gold shadow-[0_5px_15px_rgba(200,163,106,0.3)]'
