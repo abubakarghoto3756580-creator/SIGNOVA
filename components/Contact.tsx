@@ -5,7 +5,7 @@ import { MapPin, Phone, Clock } from 'lucide-react';
 
 export default function Contact() {
   return (
-    <section id="contact" className="py-24 md:py-32 bg-signova-ivory border-t border-signova-gold/10">
+    <section id="contact" className="py-24 md:py-32 pb-40 md:pb-32 bg-signova-ivory border-t border-signova-gold/10">
       <div className="container mx-auto px-4">
         <div className="text-center max-w-3xl mx-auto mb-20">
           <motion.h4 
