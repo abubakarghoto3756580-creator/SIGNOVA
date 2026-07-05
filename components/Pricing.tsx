@@ -107,7 +107,7 @@ export default function Pricing() {
   const [activeTab, setActiveTab] = useState('hydrafacials');
 
   return (
-    <section id="pricing" className="py-24 md:py-32 bg-[#2B1A0E] relative overflow-hidden">
+    <section id="pricing" className="py-24 md:py-32 bg-[#2B1A0E] relative overflow-hidden overflow-x-hidden w-full max-w-full">
       {/* === PHASE 3: PRICING SECTION === */}
       <div className="absolute inset-0 bg-[url('https://i.postimg.cc/sDGpxyTm/Clinic-treatment-room-interior-202607010026-2.jpg')] bg-cover bg-center opacity-5 mix-blend-overlay pointer-events-none" />
       <div className="container mx-auto px-4 relative z-10">
@@ -140,7 +140,7 @@ export default function Pricing() {
           </motion.p>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-8 items-center max-w-7xl mx-auto">
+        <div className="grid lg:grid-cols-3 gap-8 items-center max-w-full w-full mx-auto">
           {pricingData.map((plan, index) => {
             const Icon = plan.icon;
             return (
@@ -150,15 +150,15 @@ export default function Pricing() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.2 }}
-                className={`relative bg-signova-white rounded-sm p-8 md:p-10 transition-all duration-300 flex flex-col h-full ${
+                className={`relative bg-signova-white rounded-sm p-8 md:p-10 transition-all duration-300 flex flex-col h-full overflow-hidden w-full max-w-full ${
                   plan.featured 
-                    ? 'border-2 border-signova-gold shadow-[0_10px_40px_rgba(200,163,106,0.3)] scale-105 z-10' 
+                    ? 'border-2 border-signova-gold shadow-[0_10px_40px_rgba(200,163,106,0.3)] lg:scale-105 z-10' 
                     : 'border border-signova-gold/20 shadow-[0_5px_15px_rgba(200,163,106,0.05)]'
                 }`}
               >
                 {/* Badge */}
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                  <span className="bg-signova-gold text-signova-white px-4 py-1 rounded-sm text-[10px] font-bold tracking-[0.2em] uppercase shadow-md whitespace-nowrap">
+                <div className="absolute top-0 right-0 z-20">
+                  <span className="bg-signova-gold text-signova-white px-4 py-1.5 rounded-bl-lg text-[10px] font-bold tracking-[0.2em] uppercase shadow-md whitespace-nowrap block">
                     {plan.badge}
                   </span>
                 </div>

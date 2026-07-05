@@ -86,12 +86,12 @@ export default function Doctors() {
                     <span className="font-serif text-5xl tracking-widest">{doctor.initials}</span>
                   )}
                 </div>
-                <div className="flex-1">
-                  <h3 className="font-serif text-3xl text-signova-dark mb-2">{doctor.name}</h3>
-                  <p className="text-sm uppercase tracking-widest font-semibold text-signova-gold mb-2">
+                <div className="flex-1 min-w-0">
+                  <h3 className="font-serif text-2xl md:text-3xl text-signova-dark mb-2">{doctor.name}</h3>
+                  <p className="text-xs md:text-sm uppercase tracking-widest font-semibold text-signova-gold mb-2">
                     {doctor.title}
                   </p>
-                  <p className="text-sm text-signova-dark/70 font-medium mb-2">{doctor.qualification}</p>
+                  <p className="text-xs md:text-sm text-signova-dark/70 font-medium mb-2">{doctor.qualification}</p>
                   {doctor.badge && (
                     <div className="inline-flex items-center gap-1 bg-signova-deep-gold text-white px-3 py-1 rounded-sm text-xs font-semibold tracking-wider">
                       <Award size={14} />

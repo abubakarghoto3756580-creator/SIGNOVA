@@ -53,16 +53,16 @@ export default function Hero() {
         ))}
       </div>
 
-      <div className="relative z-10 container mx-auto px-4 flex flex-col items-center text-center">
+      <div className="relative z-10 container mx-auto px-4 flex flex-col items-center text-center pt-24 md:pt-0">
         {/* Grand Opening Badge */}
         <motion.div
           initial={{ opacity: 0, scale: 0.9, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="mb-8"
+          className="mb-6 md:mb-8"
         >
-          <div className="inline-block px-6 py-2 rounded-full border border-signova-gold/50 bg-signova-gold/10 backdrop-blur-sm shadow-[0_0_15px_rgba(200,163,106,0.3)]">
-            <span className="text-signova-gold text-xs font-bold uppercase tracking-[0.2em]">Grand Opening — 50% OFF</span>
+          <div className="inline-block px-4 py-1.5 md:px-6 md:py-2 rounded-full border border-signova-gold/50 bg-signova-gold/10 backdrop-blur-sm shadow-[0_0_15px_rgba(200,163,106,0.3)]">
+            <span className="text-signova-gold text-[10px] md:text-xs font-bold uppercase tracking-[0.2em]">Grand Opening — 50% OFF</span>
           </div>
         </motion.div>
 
@@ -70,7 +70,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="font-cursive text-4xl md:text-5xl text-signova-gold mb-4"
+          className="font-cursive text-3xl md:text-5xl text-signova-gold mb-2 md:mb-4"
         >
           Welcome to Signova
         </motion.span>
@@ -79,7 +79,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-5xl md:text-7xl lg:text-8xl font-serif text-signova-white tracking-tight leading-[1.1] mb-2"
+          className="text-4xl md:text-7xl lg:text-8xl font-serif text-signova-white tracking-tight leading-[1.1] mb-1 md:mb-2"
         >
           Your Beauty. Your Smile.
         </motion.h1>
@@ -88,7 +88,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.5 }}
-          className="text-4xl md:text-6xl font-serif italic text-signova-gold mb-8"
+          className="text-3xl md:text-6xl font-serif italic text-signova-gold mb-6 md:mb-8"
         >
           Our Expertise.
         </motion.h2>
@@ -106,12 +106,12 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.8 }}
-          className="flex flex-col sm:flex-row items-center gap-6"
+          className="flex flex-col sm:flex-row items-center gap-4 md:gap-6 w-full sm:w-auto"
         >
-          <a href="#appointment" className="bg-signova-gold text-white px-10 py-4 rounded-sm text-sm uppercase tracking-[0.2em] font-semibold shadow-[0_0_20px_rgba(200,163,106,0.4)] transition-all hover:scale-105 hover:bg-signova-deep-gold">
+          <a href="#appointment" className="bg-signova-gold text-white px-6 py-3 md:px-10 md:py-4 rounded-sm text-xs md:text-sm uppercase tracking-[0.2em] font-semibold shadow-[0_0_20px_rgba(200,163,106,0.4)] transition-all hover:scale-105 hover:bg-signova-deep-gold w-full sm:w-auto">
             Book Appointment →
           </a>
-          <a href="#services" className="px-10 py-4 rounded-sm border border-signova-gold text-signova-gold text-sm uppercase tracking-[0.2em] font-semibold transition-all hover:bg-signova-gold/10">
+          <a href="#services" className="px-6 py-3 md:px-10 md:py-4 rounded-sm border border-signova-gold text-signova-gold text-xs md:text-sm uppercase tracking-[0.2em] font-semibold transition-all hover:bg-signova-gold/10 w-full sm:w-auto">
             Explore Services
           </a>
         </motion.div>

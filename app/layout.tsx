@@ -83,7 +83,7 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
           }}
         />
       </head>
-      <body className="font-sans bg-signova-ivory text-signova-dark antialiased" suppressHydrationWarning>
+      <body className="font-sans bg-signova-ivory text-signova-dark antialiased overflow-x-hidden w-full max-w-full" suppressHydrationWarning>
         {/* === PHASE 5: PROGRESS BAR === */}
         <ProgressBar />
         

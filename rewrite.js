@@ -1,13 +1,32 @@
 const fs = require('fs');
-let content = fs.readFileSync('/app/applet/components/Services.tsx', 'utf8');
 
-// Use aspect-[4/3] instead of h-44
-content = content.replace('className="relative w-full h-44 rounded-t-sm bg-signova-ivory border-b border-signova-gold/10"', 'className="relative w-full aspect-[4/3] rounded-t-sm bg-signova-ivory border-b border-signova-gold/10"');
+let content = fs.readFileSync('./components/Pricing.tsx', 'utf8');
 
-// Ensure card is full height
-content = content.replace('className="group relative bg-signova-white rounded-sm flex flex-col transition-all duration-300 border border-transparent hover:border-signova-gold hover:shadow-[0_15px_30px_rgba(200,163,106,0.15)]"', 'className="group relative bg-signova-white rounded-sm flex flex-col h-full transition-all duration-300 border border-transparent hover:border-signova-gold hover:shadow-[0_15px_30px_rgba(200,163,106,0.15)]"');
+// Fix horizontal overflow by ensuring w-full and modifying badge positioning
+content = content.replace(
+  '<div className="grid lg:grid-cols-3 gap-8 items-center max-w-7xl mx-auto">',
+  '<div className="grid lg:grid-cols-3 gap-8 items-center max-w-full w-full mx-auto">'
+);
 
-// Add line-clamp-2
-content = content.replace('className="text-sm opacity-70 leading-relaxed text-signova-dark mb-6 flex-grow"', 'className="text-sm opacity-70 leading-relaxed text-signova-dark mb-6 line-clamp-2"');
+content = content.replace(
+  '<div className="absolute -top-4 left-1/2 -translate-x-1/2">',
+  '<div className="absolute -top-4 right-4 z-20">'
+);
 
-fs.writeFileSync('/app/applet/components/Services.tsx', content);
+fs.writeFileSync('./components/Pricing.tsx', content);
+
+let floatingContent = fs.readFileSync('./components/FloatingButtons.tsx', 'utf8');
+
+// Fix floating buttons positioning and spacing
+floatingContent = floatingContent.replace(
+  'className="fixed bottom-6 right-6 z-50 flex flex-col gap-4"',
+  'className="fixed bottom-[90px] md:bottom-6 right-4 md:right-6 z-[60] flex flex-col gap-4"'
+);
+
+// Hide back to top on mobile to save vertical space
+floatingContent = floatingContent.replace(
+  'className="w-14 h-14 bg-signova-gold text-white rounded-full flex items-center justify-center shadow-lg hover:bg-signova-deep-gold transition-colors duration-300 mx-auto"',
+  'className="hidden md:flex w-14 h-14 bg-signova-gold text-white rounded-full items-center justify-center shadow-lg hover:bg-signova-deep-gold transition-colors duration-300 mx-auto"'
+);
+
+fs.writeFileSync('./components/FloatingButtons.tsx', floatingContent);

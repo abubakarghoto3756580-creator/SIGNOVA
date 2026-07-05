@@ -6,11 +6,11 @@ import { Sparkles, Activity, Droplets, Smile, Zap, Heart } from 'lucide-react';
 
 const services = [
   { id: 1, title: 'Dental & Smile Design', description: 'Scaling, polishing, implants, orthodontics, teeth whitening', image: 'https://i.postimg.cc/SNYWRqgT/Dentist-cleaning-patient-teeth-202607010026-4.jpg', icon: Smile },
-  { id: 2, title: 'Aesthetic & Skin Care', description: 'Hydra Facial, Classic Facial, anti-aging treatments, skin resurfacing', image: 'https://i.postimg.cc/P5G18cck/Woman-receiving-hydrafacial-trea-202607010026.jpg', icon: Sparkles },
-  { id: 3, title: 'Physiotherapy', description: 'Back pain, stroke recovery, muscle strengthening, post-op rehab', image: '', icon: Activity },
+  { id: 2, title: 'Aesthetic & Skin Care', description: 'Hydra Facial, Classic Facial, anti-aging treatments, skin resurfacing', image: '/aesthetic.jpg', icon: Sparkles },
+  { id: 3, title: 'Physiotherapy', description: 'Back pain, stroke recovery, muscle strengthening, post-op rehab', image: '/physiotherapy.jpg', icon: Activity },
   { id: 4, title: 'Hijama Therapy', description: 'Wet & dry cupping, detox, immunity boost, pain management', image: 'https://i.postimg.cc/rFRSscfJ/Therapist-performing-hijama-on-p-202607010026-2.jpg', icon: Droplets },
   { id: 5, title: 'EMS Training', description: 'Electric Muscle Stimulation for fitness and recovery', image: 'https://i.postimg.cc/Kzs9T2CD/file-00000000fc2c7206bf6caf81a7bad3da.png', icon: Zap },
-  { id: 6, title: 'Massage & Wellness', description: 'Full Body Muscle Relaxation, Deep Tissue Massage', image: 'https://i.postimg.cc/mrBMm9B5/Therapeutic-massage-in-spa-clinic-202607010026-2.jpg', icon: Heart },
+  { id: 6, title: 'Massage & Wellness', description: 'Full Body Muscle Relaxation, Deep Tissue Massage', image: '/massage.jpg', icon: Heart },
 ];
 
 export default function Services() {

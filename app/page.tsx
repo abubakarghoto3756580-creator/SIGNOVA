@@ -13,11 +13,10 @@ import Testimonials from '@/components/Testimonials';
 import Appointment from '@/components/Appointment';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
-import MobileBottomBar from '@/components/MobileBottomBar';
 
 export default function Home() {
   return (
-    <main className="min-h-screen relative pb-20 md:pb-0 overflow-x-hidden w-full max-w-full">
+    <main className="min-h-screen relative pb-0 overflow-x-hidden w-full max-w-full">
       <Navbar />
       <Hero />
       <Stats />
@@ -33,7 +32,6 @@ export default function Home() {
       <Appointment />
       <Contact />
       <Footer />
-      <MobileBottomBar />
     </main>
   );
 }
