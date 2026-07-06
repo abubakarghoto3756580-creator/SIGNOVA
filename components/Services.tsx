@@ -56,7 +56,7 @@ export default function Services() {
           whileInView="show"
           viewport={viewportOnce}
           variants={staggerContainer(0.12)}
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
+          className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6"
         >
           {services.map((service) => {
             const Icon = service.icon;
@@ -65,7 +65,7 @@ export default function Services() {
                 key={service.id}
                 variants={fadeUp}
                 whileHover={{ y: -8, transition: { duration: 0.35, ease: EASE } }}
-                className="group relative bg-signova-white rounded-sm flex flex-col h-full transition-shadow duration-500 border border-transparent hover:border-signova-gold hover:shadow-[0_20px_40px_rgba(200,163,106,0.18)]"
+                className="group relative bg-signova-white rounded-sm flex flex-col transition-shadow duration-500 border border-transparent hover:border-signova-gold hover:shadow-[0_20px_40px_rgba(200,163,106,0.18)]"
               >
                 <div className="relative w-full aspect-[4/3] rounded-t-sm bg-signova-ivory border-b border-signova-gold/10 overflow-hidden">
                   {service.image ? (
@@ -90,13 +90,13 @@ export default function Services() {
                   </motion.div>
                 </div>
                 
-                <div className="p-8 pt-10 flex flex-col flex-grow">
+                <div className="p-8 pt-10 flex flex-col">
                   <h3 className="font-serif text-2xl text-signova-dark mb-3">{service.title}</h3>
-                  <p className="text-sm opacity-70 leading-relaxed text-signova-dark mb-6 line-clamp-2">
+                  <p className="text-sm opacity-70 leading-relaxed text-signova-dark mb-5 line-clamp-2">
                     {service.description}
                   </p>
                   
-                  <a href="#appointment" className="text-xs uppercase tracking-[0.2em] font-semibold text-signova-gold flex items-center gap-2 mt-auto w-max group-hover:text-signova-deep-gold">
+                  <a href="#appointment" className="text-xs uppercase tracking-[0.2em] font-semibold text-signova-gold flex items-center gap-2 w-max group-hover:text-signova-deep-gold">
                     Explore <span className="text-lg group-hover:translate-x-2 transition-transform duration-300">→</span>
                   </a>
                 </div>
