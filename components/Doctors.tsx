@@ -3,6 +3,7 @@
 import { motion } from 'motion/react';
 import Image from 'next/image';
 import { Award, CheckCircle2 } from 'lucide-react';
+import { fadeUp, staggerContainer, viewportOnce, EASE } from '@/lib/animations';
 
 const doctors = [
   {
@@ -37,7 +38,8 @@ export default function Doctors() {
           <motion.h4 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={viewportOnce}
+            transition={{ duration: 0.6, ease: EASE }}
             className="font-cursive text-3xl md:text-4xl text-signova-gold mb-2"
           >
             Our Specialists
@@ -45,41 +47,45 @@ export default function Doctors() {
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
+            viewport={viewportOnce}
+            transition={{ duration: 0.6, delay: 0.1, ease: EASE }}
             className="text-4xl md:text-6xl font-serif leading-[1.1] text-signova-dark mb-6"
           >
             World-Class Medical Minds
           </motion.h2>
           <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
+            initial={{ opacity: 0, scaleX: 0 }}
+            whileInView={{ opacity: 1, scaleX: 1 }}
+            viewport={viewportOnce}
+            transition={{ duration: 0.7, delay: 0.25, ease: EASE }}
             className="flex justify-center"
           >
             <div className="w-24 h-[1px] bg-signova-gold mb-6" />
           </motion.div>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-          {doctors.map((doctor, index) => (
+        <motion.div
+          initial="hidden"
+          whileInView="show"
+          viewport={viewportOnce}
+          variants={staggerContainer(0.15)}
+          className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto"
+        >
+          {doctors.map((doctor) => (
             <motion.div
               key={doctor.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
-              className="bg-signova-white rounded-sm p-8 md:p-10 border border-transparent hover:border-signova-gold shadow-[0_5px_15px_rgba(200,163,106,0.05)] hover:shadow-[0_15px_30px_rgba(200,163,106,0.15)] transition-all flex flex-col"
+              variants={fadeUp}
+              whileHover={{ y: -6, transition: { duration: 0.35, ease: EASE } }}
+              className="bg-signova-white rounded-sm p-8 md:p-10 border border-transparent hover:border-signova-gold shadow-[0_5px_15px_rgba(200,163,106,0.05)] hover:shadow-[0_20px_40px_rgba(200,163,106,0.18)] transition-shadow duration-500 flex flex-col"
             >
               <div className="flex flex-col items-center text-center mb-8">
-                <div className="relative aspect-[3/4] w-full max-w-[220px] rounded-lg bg-signova-gold/10 flex items-center justify-center text-signova-gold border border-signova-gold/30 shrink-0 overflow-hidden shadow-sm mb-6">
+                <div className="relative aspect-[3/4] w-full max-w-[220px] rounded-lg bg-signova-gold/10 flex items-center justify-center text-signova-gold border border-signova-gold/30 shrink-0 overflow-hidden shadow-sm mb-6 group">
                   {doctor.image ? (
                     <Image
                       src={doctor.image}
                       alt={doctor.name}
                       fill
-                      className="object-cover"
+                      className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                       referrerPolicy="no-referrer"
                     />
                   ) : (
@@ -121,20 +127,24 @@ export default function Doctors() {
               </a>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
 
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={viewportOnce}
+          transition={{ duration: 0.6, ease: EASE }}
           className="mt-12 text-center"
         >
-          <a 
+          <motion.a 
             href="#doctors" 
-            className="inline-flex px-8 py-4 border border-signova-gold rounded-sm text-signova-gold hover:bg-signova-gold hover:text-signova-white transition-colors text-xs uppercase tracking-[0.2em] font-semibold"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.96 }}
+            transition={{ duration: 0.3, ease: EASE }}
+            className="inline-flex px-8 py-4 border border-signova-gold rounded-sm text-signova-gold hover:bg-signova-gold hover:text-signova-white transition-colors duration-300 text-xs uppercase tracking-[0.2em] font-semibold"
           >
             View All Doctors
-          </a>
+          </motion.a>
         </motion.div>
       </div>
     </section>

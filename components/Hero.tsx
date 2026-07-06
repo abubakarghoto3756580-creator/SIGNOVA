@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { motion } from 'motion/react';
+import { EASE } from '@/lib/animations';
 
 // Simple decorative leaf SVG component
 const Leaf = ({ className }: { className?: string }) => (
@@ -58,7 +59,7 @@ export default function Hero() {
         <motion.div
           initial={{ opacity: 0, scale: 0.9, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.6, ease: EASE }}
           className="mb-6 md:mb-8"
         >
           <div className="inline-block px-4 py-1.5 md:px-6 md:py-2 rounded-full border border-signova-gold/50 bg-signova-gold/10 backdrop-blur-sm shadow-[0_0_15px_rgba(200,163,106,0.3)]">
@@ -69,7 +70,7 @@ export default function Hero() {
         <motion.span
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
+          transition={{ duration: 0.6, delay: 0.2, ease: EASE }}
           className="font-cursive text-3xl md:text-5xl text-signova-gold mb-2 md:mb-4"
         >
           Welcome to Signova
@@ -78,7 +79,7 @@ export default function Hero() {
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
+          transition={{ duration: 0.8, delay: 0.4, ease: EASE }}
           className="text-4xl md:text-7xl lg:text-8xl font-serif text-signova-white tracking-tight leading-[1.1] mb-1 md:mb-2"
         >
           Your Beauty. Your Smile.
@@ -87,7 +88,7 @@ export default function Hero() {
         <motion.h2
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
+          transition={{ duration: 0.8, delay: 0.5, ease: EASE }}
           className="text-3xl md:text-6xl font-serif italic text-signova-gold mb-6 md:mb-8"
         >
           Our Expertise.
@@ -96,7 +97,7 @@ export default function Hero() {
         <motion.p
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
+          transition={{ duration: 0.8, delay: 0.6, ease: EASE }}
           className="text-lg md:text-xl text-signova-ivory/80 font-light tracking-wide mb-12 max-w-2xl"
         >
           Sialkot&apos;s Premier Luxury Aesthetic & Dental Studio
@@ -105,15 +106,27 @@ export default function Hero() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.8 }}
+          transition={{ duration: 0.8, delay: 0.8, ease: EASE }}
           className="flex flex-col sm:flex-row items-center gap-4 md:gap-6 w-full sm:w-auto"
         >
-          <a href="#appointment" className="bg-signova-gold text-white px-6 py-3 md:px-10 md:py-4 rounded-sm text-xs md:text-sm uppercase tracking-[0.2em] font-semibold shadow-[0_0_20px_rgba(200,163,106,0.4)] transition-all hover:scale-105 hover:bg-signova-deep-gold w-full sm:w-auto">
+          <motion.a
+            href="#appointment"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.96 }}
+            transition={{ duration: 0.3, ease: EASE }}
+            className="bg-signova-gold text-white px-6 py-3 md:px-10 md:py-4 rounded-sm text-xs md:text-sm uppercase tracking-[0.2em] font-semibold shadow-[0_0_20px_rgba(200,163,106,0.4)] hover:bg-signova-deep-gold w-full sm:w-auto text-center"
+          >
             Book Appointment →
-          </a>
-          <a href="#services" className="px-6 py-3 md:px-10 md:py-4 rounded-sm border border-signova-gold text-signova-gold text-xs md:text-sm uppercase tracking-[0.2em] font-semibold transition-all hover:bg-signova-gold/10 w-full sm:w-auto">
+          </motion.a>
+          <motion.a
+            href="#services"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.96 }}
+            transition={{ duration: 0.3, ease: EASE }}
+            className="px-6 py-3 md:px-10 md:py-4 rounded-sm border border-signova-gold text-signova-gold text-xs md:text-sm uppercase tracking-[0.2em] font-semibold hover:bg-signova-gold/10 w-full sm:w-auto text-center"
+          >
             Explore Services
-          </a>
+          </motion.a>
         </motion.div>
       </div>
 

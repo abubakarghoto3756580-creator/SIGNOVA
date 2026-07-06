@@ -2,6 +2,7 @@
 
 import { motion } from 'motion/react';
 import { MapPin, Phone, Clock } from 'lucide-react';
+import { fadeUp, staggerContainer, viewportOnce, EASE } from '@/lib/animations';
 
 export default function Contact() {
   return (
@@ -11,7 +12,8 @@ export default function Contact() {
           <motion.h4 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={viewportOnce}
+            transition={{ duration: 0.6, ease: EASE }}
             className="font-cursive text-2xl md:text-4xl text-signova-gold mb-1 md:mb-2"
           >
             Get In Touch
@@ -19,17 +21,17 @@ export default function Contact() {
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
+            viewport={viewportOnce}
+            transition={{ duration: 0.6, delay: 0.1, ease: EASE }}
             className="text-3xl md:text-6xl font-serif leading-[1.1] text-signova-dark mb-3 md:mb-6"
           >
             Visit Signova
           </motion.h2>
           <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
+            initial={{ opacity: 0, scaleX: 0 }}
+            whileInView={{ opacity: 1, scaleX: 1 }}
+            viewport={viewportOnce}
+            transition={{ duration: 0.7, delay: 0.25, ease: EASE }}
             className="flex justify-center"
           >
             <div className="w-24 h-[1px] bg-signova-gold mb-4 md:mb-6" />
@@ -37,16 +39,21 @@ export default function Contact() {
         </div>
 
         <div className="grid lg:grid-cols-2 gap-16 items-start max-w-6xl mx-auto">
-          <div className="space-y-12 bg-signova-white p-8 md:p-12 rounded-sm border border-signova-gold/10 shadow-[0_5px_20px_rgba(200,163,106,0.05)]">
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="flex gap-6 items-start"
-            >
-              <div className="w-12 h-12 rounded-full bg-signova-ivory flex items-center justify-center text-signova-gold shrink-0 border border-signova-gold/20">
+          <motion.div
+            initial="hidden"
+            whileInView="show"
+            viewport={viewportOnce}
+            variants={staggerContainer(0.15)}
+            className="space-y-12 bg-signova-white p-8 md:p-12 rounded-sm border border-signova-gold/10 shadow-[0_5px_20px_rgba(200,163,106,0.05)]"
+          >
+            <motion.div variants={fadeUp} className="flex gap-6 items-start">
+              <motion.div
+                whileHover={{ scale: 1.1, rotate: 6 }}
+                transition={{ duration: 0.3, ease: EASE }}
+                className="w-12 h-12 rounded-full bg-signova-ivory flex items-center justify-center text-signova-gold shrink-0 border border-signova-gold/20"
+              >
                 <MapPin size={24} />
-              </div>
+              </motion.div>
               <div>
                 <h3 className="text-sm uppercase tracking-[0.2em] font-semibold text-signova-gold mb-3">Location</h3>
                 <p className="text-signova-dark/80 font-serif text-lg leading-relaxed max-w-xs">
@@ -55,42 +62,38 @@ export default function Contact() {
               </div>
             </motion.div>
 
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
-              className="flex gap-6 items-start"
-            >
-              <div className="w-12 h-12 rounded-full bg-signova-ivory flex items-center justify-center text-signova-gold shrink-0 border border-signova-gold/20">
+            <motion.div variants={fadeUp} className="flex gap-6 items-start">
+              <motion.div
+                whileHover={{ scale: 1.1, rotate: 6 }}
+                transition={{ duration: 0.3, ease: EASE }}
+                className="w-12 h-12 rounded-full bg-signova-ivory flex items-center justify-center text-signova-gold shrink-0 border border-signova-gold/20"
+              >
                 <Phone size={24} />
-              </div>
+              </motion.div>
               <div>
                 <h3 className="text-sm uppercase tracking-[0.2em] font-semibold text-signova-gold mb-3">Contact</h3>
                 <div className="space-y-2">
                   <p className="text-signova-dark/80 font-serif text-lg">
-                    <a href="tel:+92524352215" className="hover:text-signova-gold transition-colors">+92 52 4352215</a> <span className="text-xs font-sans text-signova-dark/50 uppercase tracking-wider">(Landline)</span>
+                    <a href="tel:+92524352215" className="hover:text-signova-gold transition-colors duration-300">+92 52 4352215</a> <span className="text-xs font-sans text-signova-dark/50 uppercase tracking-wider">(Landline)</span>
                   </p>
                   <p className="text-signova-dark/80 font-serif text-lg">
-                    <a href="tel:+923098644429" className="hover:text-signova-gold transition-colors">+92 309 8644429</a> <span className="text-xs font-sans text-signova-dark/50 uppercase tracking-wider">(WhatsApp/Reception)</span>
+                    <a href="tel:+923098644429" className="hover:text-signova-gold transition-colors duration-300">+92 309 8644429</a> <span className="text-xs font-sans text-signova-dark/50 uppercase tracking-wider">(WhatsApp/Reception)</span>
                   </p>
                   <p className="text-signova-dark/80 font-serif text-lg">
-                    <a href="tel:+923098644449" className="hover:text-signova-gold transition-colors">+92 309 8644449</a> <span className="text-xs font-sans text-signova-dark/50 uppercase tracking-wider">(WhatsApp)</span>
+                    <a href="tel:+923098644449" className="hover:text-signova-gold transition-colors duration-300">+92 309 8644449</a> <span className="text-xs font-sans text-signova-dark/50 uppercase tracking-wider">(WhatsApp)</span>
                   </p>
                 </div>
               </div>
             </motion.div>
 
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
-              className="flex gap-6 items-start"
-            >
-              <div className="w-12 h-12 rounded-full bg-signova-ivory flex items-center justify-center text-signova-gold shrink-0 border border-signova-gold/20">
+            <motion.div variants={fadeUp} className="flex gap-6 items-start">
+              <motion.div
+                whileHover={{ scale: 1.1, rotate: 6 }}
+                transition={{ duration: 0.3, ease: EASE }}
+                className="w-12 h-12 rounded-full bg-signova-ivory flex items-center justify-center text-signova-gold shrink-0 border border-signova-gold/20"
+              >
                 <Clock size={24} />
-              </div>
+              </motion.div>
               <div>
                 <h3 className="text-sm uppercase tracking-[0.2em] font-semibold text-signova-gold mb-3">Working Hours</h3>
                 <div className="space-y-3">
@@ -109,13 +112,13 @@ export default function Contact() {
                 </div>
               </div>
             </motion.div>
-          </div>
+          </motion.div>
 
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
+            viewport={viewportOnce}
+            transition={{ duration: 0.8, ease: EASE }}
             className="h-full min-h-[500px] w-full rounded-sm overflow-hidden shadow-[0_10px_30px_rgba(200,163,106,0.15)] border border-signova-gold/20 relative"
           >
             {/* Map of Sialkot */}

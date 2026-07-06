@@ -3,6 +3,7 @@
 import { motion } from 'motion/react';
 import { Users, Building2, Award, Star } from 'lucide-react';
 import { useEffect, useState, useRef } from 'react';
+import { fadeUp, staggerContainer, viewportOnce, EASE } from '@/lib/animations';
 
 function CountUp({ target, suffix = '' }: { target: number, suffix?: string }) {
   const [count, setCount] = useState(0);
@@ -69,31 +70,38 @@ export default function Stats() {
       <motion.div 
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8 }}
+        viewport={viewportOnce}
+        transition={{ duration: 0.8, ease: EASE }}
         className="bg-signova-dark border border-signova-gold/30 rounded-sm p-8 md:p-12 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.5)]"
       >
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:divide-x md:divide-signova-gold/20">
-          {stats.map((stat, index) => {
+        <motion.div
+          initial="hidden"
+          whileInView="show"
+          viewport={viewportOnce}
+          variants={staggerContainer(0.12, 0.1)}
+          className="grid grid-cols-2 md:grid-cols-4 gap-8 md:divide-x md:divide-signova-gold/20"
+        >
+          {stats.map((stat) => {
             const Icon = stat.icon;
             return (
               <motion.div 
                 key={stat.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
+                variants={fadeUp}
                 className="flex flex-col items-center text-center px-4"
               >
-                <div className="w-12 h-12 rounded-full bg-signova-gold/10 flex items-center justify-center text-signova-gold mb-4 border border-signova-gold/20">
+                <motion.div
+                  whileHover={{ scale: 1.12, rotate: 6 }}
+                  transition={{ duration: 0.3, ease: EASE }}
+                  className="w-12 h-12 rounded-full bg-signova-gold/10 flex items-center justify-center text-signova-gold mb-4 border border-signova-gold/20"
+                >
                   <Icon size={24} strokeWidth={1.5} />
-                </div>
+                </motion.div>
                 <CountUp target={stat.value} suffix={stat.suffix} />
                 <p className="text-[10px] uppercase tracking-[0.2em] text-signova-gold/80 font-medium">{stat.label}</p>
               </motion.div>
             );
           })}
-        </div>
+        </motion.div>
       </motion.div>
     </section>
   );

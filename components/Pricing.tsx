@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Smile, Sparkles, Activity } from 'lucide-react';
+import { fadeUp, staggerContainer, viewportOnce, EASE } from '@/lib/animations';
 
 const aestheticCategories = [
   {
@@ -115,7 +116,8 @@ export default function Pricing() {
           <motion.h4 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={viewportOnce}
+            transition={{ duration: 0.6, ease: EASE }}
             className="font-cursive text-3xl md:text-4xl text-signova-gold mb-2"
           >
             Transparent Pricing
@@ -123,8 +125,8 @@ export default function Pricing() {
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
+            viewport={viewportOnce}
+            transition={{ duration: 0.6, delay: 0.1, ease: EASE }}
             className="text-4xl md:text-6xl font-serif leading-[1.1] text-signova-white mb-6"
           >
             Investment In Your <span className="italic text-signova-gold">Beauty & Health</span>
@@ -132,28 +134,32 @@ export default function Pricing() {
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
+            viewport={viewportOnce}
+            transition={{ duration: 0.6, delay: 0.2, ease: EASE }}
             className="text-signova-white/80 font-light text-sm uppercase tracking-[0.2em]"
           >
             Grand Opening Special — 50% OFF on All Treatments
           </motion.p>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-8 items-center max-w-full w-full mx-auto">
-          {pricingData.map((plan, index) => {
+        <motion.div
+          initial="hidden"
+          whileInView="show"
+          viewport={viewportOnce}
+          variants={staggerContainer(0.15)}
+          className="grid lg:grid-cols-3 gap-8 items-center max-w-full w-full mx-auto"
+        >
+          {pricingData.map((plan) => {
             const Icon = plan.icon;
             return (
               <motion.div
                 key={plan.id}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
-                className={`relative bg-signova-white rounded-sm p-8 md:p-10 transition-all duration-300 flex flex-col h-full overflow-hidden w-full max-w-full ${
+                variants={fadeUp}
+                whileHover={{ y: -6, transition: { duration: 0.35, ease: EASE } }}
+                className={`relative bg-signova-white rounded-sm p-8 md:p-10 transition-shadow duration-500 flex flex-col h-full overflow-hidden w-full max-w-full ${
                   plan.featured 
                     ? 'border-2 border-signova-gold shadow-[0_10px_40px_rgba(200,163,106,0.3)] lg:scale-105 z-10' 
-                    : 'border border-signova-gold/20 shadow-[0_5px_15px_rgba(200,163,106,0.05)]'
+                    : 'border border-signova-gold/20 shadow-[0_5px_15px_rgba(200,163,106,0.05)] hover:shadow-[0_20px_40px_rgba(200,163,106,0.15)]'
                 }`}
               >
                 {/* Badge */}
@@ -178,17 +184,20 @@ export default function Pricing() {
                     
                     <div className="flex overflow-x-auto hide-scrollbar gap-2 mb-6 pb-2">
                       {aestheticCategories.map(cat => (
-                        <button
+                        <motion.button
                           key={cat.id}
                           onClick={() => setActiveTab(cat.id)}
-                          className={`px-4 py-2 rounded-sm text-[10px] font-bold tracking-[0.1em] uppercase whitespace-nowrap transition-colors flex-1 ${
+                          whileHover={{ scale: 1.04 }}
+                          whileTap={{ scale: 0.96 }}
+                          transition={{ duration: 0.25, ease: EASE }}
+                          className={`px-4 py-2 rounded-sm text-[10px] font-bold tracking-[0.1em] uppercase whitespace-nowrap transition-colors duration-300 flex-1 ${
                             activeTab === cat.id 
                               ? 'bg-signova-gold text-white shadow-md' 
                               : 'bg-signova-ivory text-signova-dark/60 hover:text-signova-gold hover:bg-signova-gold/10 border border-signova-gold/10'
                           }`}
                         >
                           {cat.name}
-                        </button>
+                        </motion.button>
                       ))}
                     </div>
 
@@ -201,7 +210,7 @@ export default function Pricing() {
                               initial={{ opacity: 0, x: 10 }}
                               animate={{ opacity: 1, x: 0 }}
                               exit={{ opacity: 0, x: -10 }}
-                              transition={{ duration: 0.2 }}
+                              transition={{ duration: 0.3, ease: EASE }}
                               className="space-y-4"
                             >
                               {cat.services.map((item, i) => (
@@ -235,26 +244,29 @@ export default function Pricing() {
                   </ul>
                 )}
 
-                <a 
+                <motion.a 
                   href="#appointment"
-                  className={`w-full block text-center py-4 rounded-sm text-xs uppercase tracking-[0.2em] font-semibold transition-colors mt-auto ${
+                  whileHover={{ scale: 1.03 }}
+                  whileTap={{ scale: 0.97 }}
+                  transition={{ duration: 0.3, ease: EASE }}
+                  className={`w-full block text-center py-4 rounded-sm text-xs uppercase tracking-[0.2em] font-semibold transition-colors duration-300 mt-auto ${
                     plan.featured
                       ? 'bg-signova-gold text-white hover:bg-signova-deep-gold shadow-[0_5px_15px_rgba(200,163,106,0.3)]'
                       : 'border border-signova-gold text-signova-gold hover:bg-signova-gold hover:text-white'
                   }`}
                 >
                   {plan.cta}
-                </a>
+                </motion.a>
               </motion.div>
             );
           })}
-        </div>
+        </motion.div>
 
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.8 }}
+          transition={{ duration: 0.6, delay: 0.4, ease: EASE }}
           className="mt-16 text-center max-w-4xl mx-auto"
         >
           <p className="text-signova-white/50 text-xs leading-relaxed font-light italic">

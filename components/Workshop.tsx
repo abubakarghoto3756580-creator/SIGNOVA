@@ -2,6 +2,7 @@
 
 import { motion } from 'motion/react';
 import { Calendar, Clock, MapPin, CheckCircle2, Coffee } from 'lucide-react';
+import { fadeUp, staggerContainer, viewportOnce, EASE } from '@/lib/animations';
 
 export default function Workshop() {
   return (
@@ -14,23 +15,35 @@ export default function Workshop() {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            viewport={viewportOnce}
+            transition={{ duration: 0.7, ease: EASE }}
             className="bg-signova-dark rounded-sm border border-signova-gold/20 shadow-[0_10px_40px_rgba(200,163,106,0.2)] mt-10 md:mt-12 relative z-20"
           >
             <div className="bg-signova-dark text-signova-white p-8 md:p-12 text-center border-b border-signova-gold/20 relative rounded-t-sm z-20">
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 z-30">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={viewportOnce}
+                transition={{ duration: 0.5, delay: 0.2, ease: EASE }}
+                className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 z-30"
+              >
                 <span className="bg-signova-gold text-signova-white px-6 py-2 rounded-sm text-[12px] font-bold tracking-[0.2em] uppercase shadow-md whitespace-nowrap">
                   UPCOMING EVENT
                 </span>
-              </div>
+              </motion.div>
               <h2 className="font-serif text-4xl md:text-5xl text-signova-gold mt-6 mb-4">Cupping Therapy Workshop — Hands On Practice</h2>
               <p className="text-xl md:text-2xl text-signova-white font-light tracking-wide">Wet & Dry Cupping</p>
             </div>
 
             <div className="p-8 md:p-12 bg-signova-dark rounded-b-sm">
-              <div className="grid md:grid-cols-2 gap-8 mb-10">
-                <div className="space-y-6">
+              <motion.div
+                initial="hidden"
+                whileInView="show"
+                viewport={viewportOnce}
+                variants={staggerContainer(0.1)}
+                className="grid md:grid-cols-2 gap-8 mb-10"
+              >
+                <motion.div variants={fadeUp} className="space-y-6">
                   <div className="flex items-start gap-4">
                     <Calendar className="text-signova-gold shrink-0 mt-1" size={24} />
                     <div>
@@ -59,9 +72,9 @@ export default function Workshop() {
                       <p className="font-serif text-xl text-signova-white">Rs. 2,500</p>
                     </div>
                   </div>
-                </div>
+                </motion.div>
 
-                <div className="bg-signova-white/5 p-6 rounded-sm border border-signova-gold/20 flex flex-col justify-between">
+                <motion.div variants={fadeUp} className="bg-signova-white/5 p-6 rounded-sm border border-signova-gold/20 flex flex-col justify-between">
                   <div>
                     <p className="text-[10px] uppercase tracking-widest text-signova-gold font-semibold mb-4">Conducted By</p>
                     <ul className="space-y-3 mb-6">
@@ -82,19 +95,22 @@ export default function Workshop() {
                       <span className="flex items-center gap-2 text-sm text-signova-white/90 font-medium bg-signova-white/5 p-3 rounded-sm border border-signova-white/10"><Coffee size={18} className="text-signova-gold" /> Refreshments Provided</span>
                     </div>
                   </div>
-                </div>
-              </div>
+                </motion.div>
+              </motion.div>
 
               <div className="flex flex-col items-center border-t border-signova-gold/20 pt-10 mt-4 gap-4">
                 <p className="text-signova-gold text-lg font-semibold uppercase tracking-widest">Limited Seats — Register Today!</p>
-                <a 
+                <motion.a 
                   href="https://wa.me/923314640883"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-signova-gold text-white px-10 py-5 rounded-sm text-sm uppercase tracking-[0.2em] font-semibold hover:bg-signova-deep-gold transition-colors shadow-[0_5px_15px_rgba(200,163,106,0.3)] whitespace-nowrap"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.96 }}
+                  transition={{ duration: 0.3, ease: EASE }}
+                  className="bg-signova-gold text-white px-10 py-5 rounded-sm text-sm uppercase tracking-[0.2em] font-semibold hover:bg-signova-deep-gold transition-colors duration-300 shadow-[0_5px_15px_rgba(200,163,106,0.3)] whitespace-nowrap"
                 >
                   Register Now on WhatsApp
-                </a>
+                </motion.a>
               </div>
             </div>
           </motion.div>

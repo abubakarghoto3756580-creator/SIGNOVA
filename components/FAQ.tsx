@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ChevronDown } from 'lucide-react';
+import { fadeUp, staggerContainer, viewportOnce, EASE } from '@/lib/animations';
 
 const faqs = [
   {
@@ -61,7 +62,8 @@ export default function FAQ() {
           <motion.h4 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={viewportOnce}
+            transition={{ duration: 0.6, ease: EASE }}
             className="font-cursive text-3xl md:text-4xl text-signova-gold mb-2"
           >
             Got Questions?
@@ -69,44 +71,50 @@ export default function FAQ() {
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
+            viewport={viewportOnce}
+            transition={{ duration: 0.6, delay: 0.1, ease: EASE }}
             className="text-4xl md:text-6xl font-serif leading-[1.1] text-signova-dark mb-6"
           >
             Frequently Asked Questions
           </motion.h2>
           <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
+            initial={{ opacity: 0, scaleX: 0 }}
+            whileInView={{ opacity: 1, scaleX: 1 }}
+            viewport={viewportOnce}
+            transition={{ duration: 0.7, delay: 0.25, ease: EASE }}
             className="flex justify-center"
           >
             <div className="w-24 h-[1px] bg-signova-gold mb-6" />
           </motion.div>
         </div>
 
-        <div className="max-w-4xl mx-auto space-y-4">
+        <motion.div
+          initial="hidden"
+          whileInView="show"
+          viewport={viewportOnce}
+          variants={staggerContainer(0.06)}
+          className="max-w-4xl mx-auto space-y-4"
+        >
           {faqs.map((faq, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.05 }}
+              variants={fadeUp}
               className="border-b border-signova-gold/30"
             >
               <button
                 onClick={() => toggleFAQ(index)}
                 className="w-full flex items-center justify-between py-6 text-left focus:outline-none group"
               >
-                <span className="font-semibold text-lg text-signova-dark group-hover:text-signova-gold transition-colors pr-8">
+                <span className="font-semibold text-lg text-signova-dark group-hover:text-signova-gold transition-colors duration-300 pr-8">
                   {faq.q}
                 </span>
-                <ChevronDown 
-                  className={`text-signova-gold transition-transform duration-300 shrink-0 ${openIndex === index ? 'rotate-180' : ''}`}
-                  size={24}
-                />
+                <motion.div
+                  animate={{ rotate: openIndex === index ? 180 : 0 }}
+                  transition={{ duration: 0.4, ease: EASE }}
+                  className="shrink-0"
+                >
+                  <ChevronDown className="text-signova-gold" size={24} />
+                </motion.div>
               </button>
               <AnimatePresence>
                 {openIndex === index && (
@@ -114,7 +122,7 @@ export default function FAQ() {
                     initial={{ height: 0, opacity: 0 }}
                     animate={{ height: 'auto', opacity: 1 }}
                     exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.3 }}
+                    transition={{ duration: 0.4, ease: EASE }}
                     className="overflow-hidden"
                   >
                     <p className="pb-6 text-signova-dark/70 font-light leading-relaxed pr-8">
@@ -125,7 +133,7 @@ export default function FAQ() {
               </AnimatePresence>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

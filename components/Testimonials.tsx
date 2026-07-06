@@ -3,6 +3,7 @@
 import { motion } from 'motion/react';
 import Image from 'next/image';
 import { Star, Quote } from 'lucide-react';
+import { fadeUp, staggerContainer, viewportOnce, EASE } from '@/lib/animations';
 
 const testimonials = [
   {
@@ -34,7 +35,8 @@ export default function Testimonials() {
           <motion.h4 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={viewportOnce}
+            transition={{ duration: 0.6, ease: EASE }}
             className="font-cursive text-3xl md:text-4xl text-signova-gold mb-2"
           >
             Patient Stories
@@ -42,18 +44,18 @@ export default function Testimonials() {
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
+            viewport={viewportOnce}
+            transition={{ duration: 0.6, delay: 0.1, ease: EASE }}
             className="text-4xl md:text-6xl font-serif leading-[1.1] text-signova-dark mb-8"
           >
             Words of Trust
           </motion.h2>
 
           <motion.div
-             initial={{ opacity: 0, y: 20 }}
-             whileInView={{ opacity: 1, y: 0 }}
-             viewport={{ once: true }}
-             transition={{ delay: 0.2 }}
+             initial={{ opacity: 0, y: 20, scale: 0.9 }}
+             whileInView={{ opacity: 1, y: 0, scale: 1 }}
+             viewport={viewportOnce}
+             transition={{ duration: 0.6, delay: 0.2, ease: EASE }}
              className="inline-flex items-center gap-3 bg-signova-white px-6 py-3 rounded-full border border-signova-gold/20 shadow-sm"
           >
             <div className="flex gap-1 text-[#FBBC05]">
@@ -64,15 +66,19 @@ export default function Testimonials() {
           </motion.div>
         </div>
 
-        <div className="flex flex-col lg:flex-row justify-center gap-8 max-w-7xl mx-auto">
-          {testimonials.map((testimonial, index) => (
+        <motion.div
+          initial="hidden"
+          whileInView="show"
+          viewport={viewportOnce}
+          variants={staggerContainer(0.15)}
+          className="flex flex-col lg:flex-row justify-center gap-8 max-w-7xl mx-auto"
+        >
+          {testimonials.map((testimonial) => (
             <motion.div
               key={testimonial.id}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
-              className="bg-signova-white rounded-sm p-8 md:p-10 w-full lg:w-1/3 shadow-[0_5px_15px_rgba(200,163,106,0.05)] border border-signova-gold/10 relative hover:border-signova-gold/30 hover:shadow-[0_15px_30px_rgba(200,163,106,0.1)] transition-all duration-300 flex flex-col"
+              variants={fadeUp}
+              whileHover={{ y: -6, transition: { duration: 0.35, ease: EASE } }}
+              className="bg-signova-white rounded-sm p-8 md:p-10 w-full lg:w-1/3 shadow-[0_5px_15px_rgba(200,163,106,0.05)] border border-signova-gold/10 relative hover:border-signova-gold/30 hover:shadow-[0_20px_40px_rgba(200,163,106,0.14)] transition-shadow duration-500 flex flex-col"
             >
               <div className="absolute top-8 right-8 text-signova-gold/20">
                 <Quote size={40} className="fill-current" />
@@ -107,7 +113,7 @@ export default function Testimonials() {
               </div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

@@ -2,6 +2,7 @@
 
 import { motion } from 'motion/react';
 import { ShieldCheck, Microscope, HeartHandshake, Sparkles } from 'lucide-react';
+import { fadeUp, staggerContainer, viewportOnce, EASE } from '@/lib/animations';
 
 const features = [
   { id: 1, title: 'Internationally Certified', icon: ShieldCheck, desc: 'Our practitioners hold global certifications and adhere to international standards.' },
@@ -24,27 +25,35 @@ export default function WhyChooseUs() {
             <motion.h2 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={viewportOnce}
+              transition={{ duration: 0.7, ease: EASE }}
               className="text-4xl md:text-6xl font-serif leading-[1.1] mb-12 text-signova-white"
             >
               The Gold Standard <br/><span className="italic text-signova-gold">in Medical Care.</span>
             </motion.h2>
 
-            <div className="space-y-8">
-              {features.map((feature, index) => {
+            <motion.div
+              initial="hidden"
+              whileInView="show"
+              viewport={viewportOnce}
+              variants={staggerContainer(0.12)}
+              className="space-y-8"
+            >
+              {features.map((feature) => {
                 const Icon = feature.icon;
                 return (
                   <motion.div 
                     key={feature.id}
-                    initial={{ opacity: 0, x: -30 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    variants={fadeUp}
                     className="flex gap-6"
                   >
-                    <div className="flex-shrink-0 w-12 h-12 rounded-full bg-signova-gold/10 flex items-center justify-center text-signova-gold border border-signova-gold/20">
+                    <motion.div
+                      whileHover={{ scale: 1.1, rotate: 8 }}
+                      transition={{ duration: 0.3, ease: EASE }}
+                      className="flex-shrink-0 w-12 h-12 rounded-full bg-signova-gold/10 flex items-center justify-center text-signova-gold border border-signova-gold/20"
+                    >
                       <Icon size={24} strokeWidth={1.5} />
-                    </div>
+                    </motion.div>
                     <div>
                       <h3 className="text-xl font-serif mb-2 text-signova-white tracking-wide">{feature.title}</h3>
                       <p className="text-signova-white/60 font-light leading-relaxed text-sm">{feature.desc}</p>
@@ -52,14 +61,14 @@ export default function WhyChooseUs() {
                   </motion.div>
                 );
               })}
-            </div>
+            </motion.div>
           </div>
 
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
+            viewport={viewportOnce}
+            transition={{ duration: 0.8, ease: EASE }}
             className="flex items-center justify-center lg:justify-end py-12 lg:py-0"
           >
             <div className="max-w-md text-center lg:text-right">
