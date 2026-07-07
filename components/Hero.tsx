@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { motion } from 'motion/react';
 import { EASE } from '@/lib/animations';
 
@@ -23,10 +23,54 @@ const LEAVES = [
 ];
 
 export default function Hero() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [reducedMotion, setReducedMotion] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    setReducedMotion(mediaQuery.matches);
+    const handler = (e: MediaQueryListEvent) => setReducedMotion(e.matches);
+    mediaQuery.addEventListener('change', handler);
+    return () => mediaQuery.removeEventListener('change', handler);
+  }, []);
+
   return (
-    <section id="home" className="relative h-screen w-full flex items-center justify-center overflow-hidden" style={{ background: 'linear-gradient(160deg, #2B1A0E, #3D2A1A, #4A3020)' }}>
+    <section
+      id="home"
+      className="relative h-[92vh] md:h-screen w-full flex items-center justify-center overflow-hidden"
+      style={{ background: 'linear-gradient(160deg, #2B1A0E, #3D2A1A, #4A3020)' }}
+    >
+      {/* Background video / poster fallback */}
+      <div className="absolute inset-0 w-full h-full overflow-hidden">
+        {!reducedMotion ? (
+          <video
+            ref={videoRef}
+            className="absolute inset-0 w-full h-full object-cover object-center"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            poster="/video/hero-poster.jpg"
+          >
+            <source src="/video/hero-bg.mp4" type="video/mp4" />
+          </video>
+        ) : (
+          <img
+            src="/video/hero-poster.jpg"
+            alt="Signova Aesthetic & Dental Studio"
+            className="absolute inset-0 w-full h-full object-cover object-center"
+          />
+        )}
+        {/* Dark brown gradient overlay for readability */}
+        <div
+          className="absolute inset-0"
+          style={{ background: 'linear-gradient(160deg, rgba(43,26,14,0.55), rgba(61,42,26,0.5), rgba(74,48,32,0.45))' }}
+        />
+      </div>
+
       {/* Floating Leaves */}
-      <div suppressHydrationWarning className="absolute inset-0 overflow-hidden pointer-events-none">
+      <div suppressHydrationWarning className="absolute inset-0 overflow-hidden pointer-events-none z-[1]">
         {LEAVES.map((leaf, i) => (
           <motion.div
             key={i}
