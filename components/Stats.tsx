@@ -58,7 +58,7 @@ function CountUp({ target, suffix = '' }: { target: number, suffix?: string }) {
 }
 
 const stats = [
-  { id: 1, label: 'Happy Patients', value: 10000, suffix: '+', icon: Users },
+  { id: 1, label: 'Happy Patients', value: 100, suffix: '%', icon: Users },
   { id: 2, label: 'Departments', value: 4, suffix: '', icon: Building2 },
   { id: 3, label: 'Certified Doctors', value: 2, suffix: '', icon: Award },
   { id: 4, label: 'Patient Rating', value: 5, suffix: '★', icon: Star },

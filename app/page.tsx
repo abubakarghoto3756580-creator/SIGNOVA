@@ -7,7 +7,6 @@ import Pricing from '@/components/Pricing';
 import BeforeAfter from '@/components/BeforeAfter';
 import Doctors from '@/components/Doctors';
 import WhyChooseUs from '@/components/WhyChooseUs';
-import Workshop from '@/components/Workshop';
 import FAQ from '@/components/FAQ';
 import Testimonials from '@/components/Testimonials';
 import Appointment from '@/components/Appointment';
@@ -26,7 +25,6 @@ export default function Home() {
       <BeforeAfter />
       <Doctors />
       <WhyChooseUs />
-      <Workshop />
       <FAQ />
       <Testimonials />
       <Appointment />
