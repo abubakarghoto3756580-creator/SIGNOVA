@@ -48,7 +48,7 @@ export default function Workshop() {
                     <Calendar className="text-signova-gold shrink-0 mt-1" size={24} />
                     <div>
                       <p className="text-[10px] uppercase tracking-widest text-signova-white/60 font-semibold mb-1">Date</p>
-                      <p className="font-serif text-xl text-signova-white">28 June 2026 (Sunday)</p>
+                      <p className="font-serif text-xl text-signova-white">12 July 2026 (Sunday)</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-4">
