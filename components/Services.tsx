@@ -4,16 +4,19 @@ import { motion } from 'motion/react';
 import Image from 'next/image';
 import { Sparkles, Activity, Droplets, Smile, Zap, Heart } from 'lucide-react';
 import { fadeUp, staggerContainer, viewportOnce, EASE } from '@/lib/animations';
-import aestheticImg from '../src/assets/images/aesthetic-facial-new.jpg';
-import massageImg from '../src/assets/images/massage_wellness_1783107041050.jpg';
-import physioImg from '../src/assets/images/physiotherapy-new.jpg';
+import dentalImg from '../src/assets/images/dental-service.jpg';
+import aestheticImg from '../src/assets/images/aesthetic-service.jpg';
+import physioImg from '../src/assets/images/physio-service.jpg';
+import hijamaImg from '../src/assets/images/hijama-service.jpg';
+import emsImg from '../src/assets/images/ems-service.jpg';
+import massageImg from '../src/assets/images/massage-service.jpg';
 
 const services = [
-  { id: 1, title: 'Dental & Smile Design', description: 'Scaling, polishing, implants, orthodontics, teeth whitening', image: 'https://i.postimg.cc/SNYWRqgT/Dentist-cleaning-patient-teeth-202607010026-4.jpg', icon: Smile },
+  { id: 1, title: 'Dental & Smile Design', description: 'Scaling, polishing, implants, orthodontics, teeth whitening', image: dentalImg, icon: Smile },
   { id: 2, title: 'Aesthetic & Skin Care', description: 'Hydra Facial, Classic Facial, anti-aging treatments, skin resurfacing', image: aestheticImg, icon: Sparkles },
   { id: 3, title: 'Physiotherapy', description: 'Back pain, stroke recovery, muscle strengthening, post-op rehab', image: physioImg, icon: Activity },
-  { id: 4, title: 'Hijama Therapy', description: 'Wet & dry cupping, detox, immunity boost, pain management', image: 'https://i.postimg.cc/rFRSscfJ/Therapist-performing-hijama-on-p-202607010026-2.jpg', icon: Droplets },
-  { id: 5, title: 'EMS Training', description: 'Electric Muscle Stimulation for fitness and recovery', image: 'https://i.postimg.cc/Kzs9T2CD/file-00000000fc2c7206bf6caf81a7bad3da.png', icon: Zap },
+  { id: 4, title: 'Hijama Therapy', description: 'Wet & dry cupping, detox, immunity boost, pain management', image: hijamaImg, icon: Droplets },
+  { id: 5, title: 'EMS Training', description: 'Electric Muscle Stimulation for fitness and recovery', image: emsImg, icon: Zap },
   { id: 6, title: 'Massage & Wellness', description: 'Full Body Muscle Relaxation, Deep Tissue Massage', image: massageImg, icon: Heart },
 ];
 
