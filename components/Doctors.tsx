@@ -8,25 +8,25 @@ import { fadeUp, staggerContainer, viewportOnce, EASE } from '@/lib/animations';
 const doctors = [
   {
     id: 1,
-    name: 'Dr. Fatima Maqbool',
-    image: 'https://i.postimg.cc/GmkGPKwv/Man-in-medical-scrubs-portrait-202607010026.jpg',
-    initials: 'FM',
-    title: 'Consultant & Manual Physiotherapist',
-    qualification: 'DPT, University of Sialkot (UOS)',
-    badge: 'Gold Medalist ⭐',
-    specialtyTags: ['Certified Cupping Therapist', 'Certified EMS Trainer'],
-    treatments: 'Back pain, Knee pain, Neck stiffness, Sciatica, Cerebral palsy, Frozen shoulder, Generalized body weakness, Hijama therapy, Soft tissue massage, Post-operative exercises, Paralysis/Stroke, Vertigo, Ankle sprains, Osteoarthritis'
+    name: 'Dr. Sana Iqbal',
+    image: '', // Add portrait URL here later
+    title: 'Dermatologist + Aesthetic Expert',
+    qualification: 'MBBS, FCPS',
+    badge: null,
+    specialtyTags: [] as string[],
+    treatments: 'Acne, Pigmentation, Hair & Scalp, Skin Concerns, Aesthetic Consultation',
+    timings: 'Monday – Thursday, 4:00 PM – 8:00 PM'
   },
   {
     id: 2,
-    name: 'Dr. Muhammad Abubakar',
-    image: 'https://i.postimg.cc/6QcZgQQN/1000095493-png-202607010026.jpg',
-    initials: 'MA',
+    name: 'Dr. Nihal Fatima',
+    image: '', // Add portrait URL here later
     title: 'Doctor of Physical Therapy',
-    qualification: 'DPT, USKT',
+    qualification: 'Certified in Cupping Therapy',
     badge: null,
-    specialtyTags: ['Certified in Cupping Therapy'],
-    treatments: "Arthritis, Back Pain, Neck Pain, Frozen Shoulder, Spinal Issues, Stroke, Tennis Elbow, Facial & Bell's Palsy, Sciatica, Muscle Weakness, Peripheral Neuropathy, Plantar Fasciitis & Heel Spurs, Post Operative Conditions"
+    specialtyTags: [] as string[],
+    treatments: "Arthritis, Back Pain, Neck Pain, Frozen Shoulder, Spinal Issues, Stroke, Tennis Elbow, Facial & Bell's Palsy, Sciatica, Muscle Weakness, Peripheral Neuropathy, Plantar Fasciitis & Heel Spurs, Post Operative Conditions",
+    timings: 'Monday to Saturday, 5 PM – 9 PM'
   }
 ];
 
@@ -88,9 +88,7 @@ export default function Doctors() {
                       className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                       referrerPolicy="no-referrer"
                     />
-                  ) : (
-                    <span className="font-serif text-5xl tracking-widest">{doctor.initials}</span>
-                  )}
+                  ) : null}
                 </div>
                 <div className="max-w-md">
                   <h3 className="font-serif text-2xl md:text-3xl text-signova-dark mb-2">{doctor.name}</h3>
@@ -107,6 +105,7 @@ export default function Doctors() {
                 </div>
               </div>
 
+              {doctor.specialtyTags.length > 0 && (
               <div className="mb-6 flex flex-wrap gap-2 justify-center">
                 {doctor.specialtyTags.map((tag, i) => (
                   <span key={i} className="px-3 py-1 bg-signova-ivory border border-signova-gold/20 text-signova-dark/80 text-[10px] uppercase tracking-widest rounded-sm">
@@ -114,11 +113,19 @@ export default function Doctors() {
                   </span>
                 ))}
               </div>
+              )}
 
               <div className="mb-8 flex-grow">
                 <h5 className="text-xs uppercase tracking-widest text-signova-dark font-bold mb-3 border-b border-signova-gold/20 pb-2">Treatments</h5>
                 <p className="text-sm text-signova-dark/70 leading-relaxed font-light">
                   {doctor.treatments}
+                </p>
+              </div>
+
+              <div className="mb-8">
+                <h5 className="text-xs uppercase tracking-widest text-signova-dark font-bold mb-3 border-b border-signova-gold/20 pb-2">Consultation Timings</h5>
+                <p className="text-sm text-signova-dark/70 leading-relaxed font-light">
+                  {doctor.timings}
                 </p>
               </div>
 
